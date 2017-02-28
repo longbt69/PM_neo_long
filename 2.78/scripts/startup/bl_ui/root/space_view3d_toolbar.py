@@ -62,7 +62,7 @@ class VIEW3D_PT_tools_transform(View3DPanel, Panel):
         layout = self.layout
 
         col = layout.column(align=True)
-        #col.operator("transform.translate")
+        col.operator("transform.translate")
         col.operator("transform.rotate")
         col.operator("transform.resize", text="Scale")
 
