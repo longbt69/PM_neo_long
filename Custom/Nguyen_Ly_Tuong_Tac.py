@@ -26,13 +26,6 @@ arrLoaiDatDa = [('RAN', 'Rắn', ''),('YEU', 'Yếu', '')]
 
 #arrNguyenLy = ['Default', '1.Nguyên lý Treo', '2.Nguyên lý Bản dầm', '3.Nguyên lý Gia cố', '4.Nguyên lý Nêm', '5.Nguyên lý tương tác'] 
 # Lấy ra Scene Name của màn hình hiện tại (Các Nguyên lý) : Có  thể dùng chung biến nguyenLy
-nguyenLy = bpy.context.screen.scene.name
-nguyenLy_0 = bpy.context.screen.scene.name
-nguyenLy_1 = bpy.context.screen.scene.name
-nguyenLy_2 = bpy.context.screen.scene.name
-nguyenLy_3 = bpy.context.screen.scene.name
-nguyenLy_4 = bpy.context.screen.scene.name
-nguyenLy_5 = bpy.context.screen.scene.name
 #
 #    Tab Panel NEO
 #
@@ -52,9 +45,12 @@ class ToolPanel_NEO(bpy.types.Panel):
 		
 		# screen window
 		#if bpy.context.screen.scene.name == 'Scripting.001':
-
+		
+		#lấy ra tên màn hình Nguyên lý
+		nguyenLy	= bpy.context.screen.scene.name
+		
 		# Scene
-		if bpy.context.screen.scene.name[0] == '1':
+		if nguyenLy[0] == '1':
 			#todo
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
@@ -125,11 +121,14 @@ class ToolPanel_NEO(bpy.types.Panel):
 			row.prop(scn, 'HeSoDieuChinhChieuDaiKhoaNeoKz_NL1')
 			row.label(" ")
 			
-		elif bpy.context.screen.scene.name[0] == '2':
+			#bpy.app.handlers.scene_update_post.append(cb_scene_update)
+			#EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], "LoaiDatDa_NL1", CompareLocation, CompareLocationCallback, True ) )
+			
+		elif nguyenLy[0] == '2':
 			#todo
 			print("Neo: NguyenLy2")
 			
-		elif bpy.context.screen.scene.name[0] == '3':
+		elif nguyenLy[0] == '3':
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'DuongKinhThepNeoDb_NL3')
 			row.label("(m)")
@@ -154,11 +153,11 @@ class ToolPanel_NEO(bpy.types.Panel):
 			row.prop(scn, 'KhoangCachNeoA_NL3')
 			row.label("(m)")
 			
-		elif bpy.context.screen.scene.name[0] == '4':
+		elif nguyenLy[0] == '4':
 			#todo
 			print("Neo: NguyenLy4")
 			
-		elif bpy.context.screen.scene.name[0] == '5':
+		elif nguyenLy[0] == '5':
 			#todo
 			print("Neo: NguyenLy5")
 			row = col.split(percentage=title_size, align=True)
@@ -214,7 +213,10 @@ class ToolPanel_DATDA(bpy.types.Panel):
 		col = box.column()
 		title_size = 0.8
 		
-		if bpy.context.screen.scene.name[0] == '1': # Nguyên lý 1
+		#lấy ra tên màn hình Nguyên lý
+		nguyenLy	= bpy.context.screen.scene.name
+		
+		if nguyenLy[0] == '1': # Nguyên lý 1
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'TrongLuongTheTich_NL1')
@@ -265,10 +267,13 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			row.prop(scn, 'ChieuDayPhanLopTrungBinhB_NL1')
 			row.label("(m)")
 			
-		elif bpy.context.screen.scene.name[0] == '2': # Nguyên lý 2
+			bpy.app.handlers.scene_update_post.append(cb_scene_update)
+			EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], "LoaiDatDa_NL1", CompareLocation, CompareLocationCallback, True ) )
+			
+		elif nguyenLy[0] == '2': # Nguyên lý 2
 			print("Đất Đá - Nguyên Lý 2")
 			
-		elif bpy.context.screen.scene.name[0] == '3': # Nguyên lý 3
+		elif nguyenLy[0] == '3': # Nguyên lý 3
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'TrongLuongTheTich_NL3')
 			row.label("(T/m3)")
@@ -281,7 +286,7 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			row.prop(scn, 'HeSoPoisson_NL3')
 			row.label(" ")
 			
-		elif bpy.context.screen.scene.name[0] == '4': # Nguyên lý 4
+		elif nguyenLy[0] == '4': # Nguyên lý 4
 			#  Góc dốc
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'GocDoc_1_NL4') 
@@ -327,7 +332,7 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			row.prop(scn, 'TenKheNut_3_NL4') 
 			row.label(" ")
 			
-		elif bpy.context.screen.scene.name[0] == '5': # Nguyên lý 5	
+		elif nguyenLy[0] == '5': # Nguyên lý 5	
 			#Độ bền nén đơn trục
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'DoBenNenDonTruc_NL5') 
@@ -365,7 +370,10 @@ class ToolPanel_CongTrinhNgam(bpy.types.Panel):
 		col = box.column()
 		title_size = 0.8
 		
-		if bpy.context.screen.scene.name[0] == '1': # Nguyên lý 1
+		#lấy ra tên màn hình Nguyên lý
+		nguyenLy	= bpy.context.screen.scene.name
+		
+		if nguyenLy[0] == '1': # Nguyên lý 1
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'ChieuSauH_NL1')
@@ -386,10 +394,10 @@ class ToolPanel_CongTrinhNgam(bpy.types.Panel):
 			row.prop(scn, 'ChieuCaoTuongLoH2_NL1')
 			row.label("(m)")
 						
-		elif bpy.context.screen.scene.name[0] == '2': # Nguyên lý 2
+		elif nguyenLy[0] == '2': # Nguyên lý 2
 			print("Cong Trinh Ngam - Nguyen Ly 2")
 			
-		elif bpy.context.screen.scene.name[0] == '3':
+		elif nguyenLy[0] == '3':
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'ChieuSauCTN_NL3')
 			row.label("(m)")
@@ -398,7 +406,7 @@ class ToolPanel_CongTrinhNgam(bpy.types.Panel):
 			row.prop(scn, 'BanKinhCTN_NL3')
 			row.label("(m)")
 			
-		elif bpy.context.screen.scene.name[0] == '4':
+		elif nguyenLy[0] == '4':
 			#  Góc dốc của Công trình ngầm
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'GocDoc_CongTrinhNgam_NL4') 
@@ -414,7 +422,7 @@ class ToolPanel_CongTrinhNgam(bpy.types.Panel):
 			row.prop(scn, 'ChieuRong_CongTrinhNgam_NL4') 
 			row.label("(m)")
 			
-		elif bpy.context.screen.scene.name[0] == '5':
+		elif nguyenLy[0] == '5':
 			#  Bán kính Ra
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'BanKinhRa_NL5') 
@@ -433,9 +441,13 @@ class initOutPut(bpy.types.Panel):
 		ob = context.object
 		layout = self.layout
 		scn = context.scene
-		
+			
 		title_size = 0.8
-		if bpy.context.screen.scene.name[0] == '1':
+		
+		#lấy ra tên màn hình Nguyên lý
+		nguyenLy	= bpy.context.screen.scene.name
+		
+		if nguyenLy[0] == '1':
 			# New box
 			box = layout.box()
 			col = box.column()
@@ -500,8 +512,6 @@ class initOutPut(bpy.types.Panel):
 			row.prop(scn, 'ChieuDai1ThanhNeoHongLh_NL1')
 			row.label("(m)")
 			
-			
-			
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
@@ -513,11 +523,11 @@ class initOutPut(bpy.types.Panel):
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'KhoangCachNeoHongA2_NL1')
 			row.label("(m)")
-						
-		elif bpy.context.screen.scene.name[0] == '2':
+			
+		elif nguyenLy[0] == '2':
 			print("Đầu ra - Nguyên lý 2")
 			
-		elif bpy.context.screen.scene.name[0] == '3':
+		elif nguyenLy[0] == '3':
 			# New box
 			#box = layout.box()
 			#col = box.column()
@@ -567,14 +577,12 @@ class initOutPut(bpy.types.Panel):
 			row.prop(scn, 'ModulDanHoiSau_NL3')
 			row.prop(scn, 'ModulDanHoiTruoc_NL3')
 			row.label("(m)")
-			bpy.app.handlers.scene_update_post.append(cb_scene_update)
-			if bpy.context.screen.scene.name[0] == '1':
-				EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy_1], "LoaiDatDa_NL1", CompareLocation, CompareLocationCallback, True ) )
-			elif bpy.context.screen.scene.name[0] == '3':
-				EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy_3], "cursor_location", CompareLocation, CompareLocationCallback, True ) )
-				EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy_3], 'ChonLoai', CompareLocation, CompareLocationCallback, True ) )
 			
-		elif bpy.context.screen.scene.name[0] == '4':
+			bpy.app.handlers.scene_update_post.append(cb_scene_update)
+			EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], "cursor_location", CompareLocation, CompareLocationCallback, True ) )
+			EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], 'ChonLoai', CompareLocation, CompareLocationCallback, True ) )
+			
+		elif nguyenLy[0] == '4':
 			# Thể tích khối NÊM
 			row = layout.row()
 			row.prop(scn, 'TheTich_KhoiNem_NL4')
@@ -681,35 +689,37 @@ def tinh_toan_NEM():
 
 	
 def calculator(type):
-    #scn = bpy.context.scene
-    #choise = scn['ChonLoai']
-    choise = bpy.data.scenes[nguyenLy_3].ChonLoai
-    #print(choise)
+	#scn = bpy.context.scene
+	#choise = scn['ChonLoai']
+	nguyenLy_3 = bpy.context.screen.scene.name
 	
-    if choise == 'CONG':
-        pheptinhcong()
-    elif choise == 'TRU':
-        pheptinhtru()
-    elif choise == 'NHAN':
-        pheptinhnhan()
-    else:
-        pheptinhchia()
-    # Tính bán kính
-    cursor_location_x = bpy.context.scene.cursor_location.x  
-    cursor_location_y = bpy.context.scene.cursor_location.y  
-    #cursor_location_z = bpy.context.scene.cursor_location.z  
-    r_cursor_lcation = float(math.sqrt(cursor_location_x * cursor_location_x + cursor_location_y * cursor_location_y),)
-    #scn['OutLabel'] = str(round(r_cursor_lcation, 2))
-    #scn['OutBanKinh_NL3'] = r_cursor_lcation
-	
-    bpy.data.scenes[nguyenLy_3].OutBanKinh_NL3 = r_cursor_lcation
-    if type == 0: #vẽ hình khối
-        #Vẽ đối tượng cylinder
-        bpy.ops.mesh.primitive_cylinder_add(end_fill_type='NOTHING', view_align=False, enter_editmode=False, location=(0,0,0), radius=2, depth=5)#.modifier_add(type='SOLIDIFY')
-        bpy.ops.object.modifier_add(type='SOLIDIFY')
-#       bpy.ops.object.modifier_add(type='Solidify')
+	choise = bpy.data.scenes[nguyenLy_3].ChonLoai
+	#print(choise)
+
+	if choise == 'CONG':
+		pheptinhcong(nguyenLy_3)
+	elif choise == 'TRU':
+		pheptinhtru(nguyenLy_3)
+	elif choise == 'NHAN':
+		pheptinhnhan(nguyenLy_3)
+	else:
+		pheptinhchia(nguyenLy_3)
+	# Tính bán kính
+	cursor_location_x = bpy.context.scene.cursor_location.x  
+	cursor_location_y = bpy.context.scene.cursor_location.y  
+	#cursor_location_z = bpy.context.scene.cursor_location.z  
+	r_cursor_lcation = float(math.sqrt(cursor_location_x * cursor_location_x + cursor_location_y * cursor_location_y),)
+	#scn['OutLabel'] = str(round(r_cursor_lcation, 2))
+	#scn['OutBanKinh_NL3'] = r_cursor_lcation
+
+	bpy.data.scenes[nguyenLy_3].OutBanKinh_NL3 = r_cursor_lcation
+	if type == 0: #vẽ hình khối
+		#Vẽ đối tượng cylinder
+		bpy.ops.mesh.primitive_cylinder_add(end_fill_type='NOTHING', view_align=False, enter_editmode=False, location=(0,0,0), radius=2, depth=5)#.modifier_add(type='SOLIDIFY')
+		bpy.ops.object.modifier_add(type='SOLIDIFY')
+	#       bpy.ops.object.modifier_add(type='Solidify')
 		# Set độ dày
-        bpy.context.object.modifiers["Solidify"].thickness = 0.5
+		bpy.context.object.modifiers["Solidify"].thickness = 0.5
    
 def toa_do():
     cursor_location_x = bpy.context.scene.cursor_location.x  
@@ -717,7 +727,8 @@ def toa_do():
     r_cursor_lcation = float(math.sqrt(cursor_location_x * cursor_location_x + cursor_location_y * cursor_location_y),)
     return r_cursor_lcation + 1.0
 
-def pheptinhcong():
+def pheptinhcong(nguyenLy_3):
+	
 	bpy.data.scenes[nguyenLy_3].UngSuatPhapTuyenSau_NL3 	= 1.0
 	bpy.data.scenes[nguyenLy_3].UngSuatTiepTuyenSau_NL3 	= 1.0
 	bpy.data.scenes[nguyenLy_3].BienDangSau_NL3 			= 1.0
@@ -730,13 +741,13 @@ def pheptinhcong():
 	bpy.data.scenes[nguyenLy_3].ChuyenViTruoc_NL3 			= 1.0
 	bpy.data.scenes[nguyenLy_3].ModulDanHoiTruoc_NL3 		= 1.0
 
-def pheptinhtru():
+def pheptinhtru(nguyenLy_3):
     print('tru')
 
-def pheptinhnhan():
+def pheptinhnhan(nguyenLy_3):
     print('nhan')
 
-def pheptinhchia():
+def pheptinhchia(nguyenLy_3):
 	print('chia')
     
 def GET_Location_3D_Cursor():
@@ -803,14 +814,15 @@ def CompareLocation( l1, l2 ):
     return l1 == l2
 
 def changeEvent_NL1():
+	nguyenLy_1 = bpy.context.screen.scene.name
 	if bpy.data.scenes[nguyenLy_1].LoaiDatDa_NL1 == 'RAN':
-		bpy.data.scenes[nguyenLy_1].HeSoLuuBien_NL1 = 0.8
+		bpy.data.scenes[nguyenLy_1].HeSoLuuBien_NL1 = 0.82
 	else:
 		bpy.data.scenes[nguyenLy_1].HeSoLuuBien_NL1 = 0.81
 	
 #The callback to execute when the cursor's location changes    
 def CompareLocationCallback( watcher, newValue ):
-	#print(bpy.context.screen.scene.name[0])
+	print(bpy.context.screen.scene.name[0])
 	if bpy.context.screen.scene.name[0] 	== '1':
 		changeEvent_NL1()
 	elif bpy.context.screen.scene.name[0] 	== '3':
