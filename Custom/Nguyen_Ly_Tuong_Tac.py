@@ -641,6 +641,7 @@ def tinh_V():
 def tinh_toan_NEM():
 	#print("Tính toán NÊM")
 	# Tạo Khối cầu tròn
+	nguyenLy_4 = bpy.context.screen.scene.name
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	
 	# Tạo Eclip theo Thông số Khe nứt 1
