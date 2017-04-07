@@ -23,6 +23,7 @@ arrChonLoai = [('CONG', 'Cong', ''),  #VD:('hinh_tron', 'Hình Tròn', 1)
                  ('CHIA', 'Chia', '')]
 arrDieuKienLoKhoan = [('KHO', 'Khô', ''),('AM', 'Ẩm', '')]
 arrLoaiDatDa = [('RAN', 'Rắn', ''),('YEU', 'Yếu', '')]
+
 #arrNguyenLy = ['Default', '1.Nguyên lý Treo', '2.Nguyên lý Bản dầm', '3.Nguyên lý Gia cố', '4.Nguyên lý Nêm', '5.Nguyên lý tương tác'] 
 # Lấy ra Scene Name của màn hình hiện tại (Các Nguyên lý) : Có  thể dùng chung biến nguyenLy
 nguyenLy = bpy.context.screen.scene.name
@@ -152,9 +153,11 @@ class ToolPanel_NEO(bpy.types.Panel):
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'KhoangCachNeoA_NL3')
 			row.label("(m)")
+			
 		elif bpy.context.screen.scene.name[0] == '4':
 			#todo
 			print("Neo: NguyenLy4")
+			
 		elif bpy.context.screen.scene.name[0] == '5':
 			#todo
 			print("Neo: NguyenLy5")
@@ -264,6 +267,7 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			
 		elif bpy.context.screen.scene.name[0] == '2': # Nguyên lý 2
 			print("Đất Đá - Nguyên Lý 2")
+			
 		elif bpy.context.screen.scene.name[0] == '3': # Nguyên lý 3
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'TrongLuongTheTich_NL3')
@@ -322,6 +326,7 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'TenKheNut_3_NL4') 
 			row.label(" ")
+			
 		elif bpy.context.screen.scene.name[0] == '5': # Nguyên lý 5	
 			#Độ bền nén đơn trục
 			row = col.split(percentage=title_size, align=True)
@@ -408,6 +413,7 @@ class ToolPanel_CongTrinhNgam(bpy.types.Panel):
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'ChieuRong_CongTrinhNgam_NL4') 
 			row.label("(m)")
+			
 		elif bpy.context.screen.scene.name[0] == '5':
 			#  Bán kính Ra
 			row = col.split(percentage=title_size, align=True)
@@ -568,7 +574,7 @@ class initOutPut(bpy.types.Panel):
 				EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy_3], "cursor_location", CompareLocation, CompareLocationCallback, True ) )
 				EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy_3], 'ChonLoai', CompareLocation, CompareLocationCallback, True ) )
 			
-		elif bpy.context.screen.scene.name[0] == '4':			
+		elif bpy.context.screen.scene.name[0] == '4':
 			# Thể tích khối NÊM
 			row = layout.row()
 			row.prop(scn, 'TheTich_KhoiNem_NL4')
@@ -591,7 +597,10 @@ class KetQuaTinh(bpy.types.Operator):
 	def execute(self, context):
 		#scn = context.scene
 		scene = bpy.context.scene
-		if bpy.context.screen.scene.name[0] == '3':
+		if bpy.context.screen.scene.name[0] == '1':
+			#ToDo
+			print('Đang xử lý sự kiện tính toán')
+		elif bpy.context.screen.scene.name[0] == '3':
 			# Delete Cylinder
 			for ob in scene.objects:
 				if ob.type == 'MESH' and ob.name.startswith("Cylinder"):
@@ -622,7 +631,7 @@ def tinh_V():
 	
 #Tính Toán NÊM cho Nguyên Lý 42
 def tinh_toan_NEM():
-	print("Tính toán NÊM")
+	#print("Tính toán NÊM")
 	# Tạo Khối cầu tròn
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	
@@ -630,6 +639,7 @@ def tinh_toan_NEM():
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	gocPhuongVi_1 = bpy.data.scenes[nguyenLy_4].GocPhuongVi_1_NL4
 	gocDoc_1 = bpy.data.scenes[nguyenLy_4].GocDoc_1_NL4
+	
 	if gocDoc_1 > 180:
 		gocDoc_1 = gocDoc_1 % 180
 	gocDoc_1 = gocDoc_1 * 2 / 180
@@ -637,6 +647,7 @@ def tinh_toan_NEM():
 	obj = bpy.context.object
 	obj.dimensions = [gocDoc_1, 2, 0]
 	
+	# Vẽ eclip 2
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	gocPhuongVi_2 = bpy.data.scenes[nguyenLy_4].GocPhuongVi_2_NL4
 	gocDoc_1 = bpy.data.scenes[nguyenLy_4].GocDoc_2_NL4
@@ -647,18 +658,22 @@ def tinh_toan_NEM():
 	obj = bpy.context.object
 	obj.dimensions = [gocDoc_1, 2, 0]
 
+	# Vẽ eclip 3
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	gocPhuongVi_3 = bpy.data.scenes[nguyenLy_4].GocPhuongVi_3_NL4
 	gocDoc_1 = bpy.data.scenes[nguyenLy_4].GocDoc_3_NL4
 	if gocDoc_1 > 180:
 		gocDoc_1 = gocDoc_1 % 180
 	gocDoc_1 = gocDoc_1 * 2 / 180
+	
 	bpy.context.object.rotation_euler[2] = radians(gocPhuongVi_3)
 	obj = bpy.context.object
 	obj.dimensions = [gocDoc_1, 2, 0]
 	
+	# Vẽ Góc Phương Vị - Công Trình Ngầm
 	bpy.ops.mesh.primitive_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), layers=(True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 	gocPhuongVi_CTN = bpy.data.scenes[nguyenLy_4].GocPhuongVi_CongTrinhNgam_NL4
+	
 	bpy.context.object.rotation_euler[2] = radians(gocPhuongVi_CTN)
 	obj = bpy.context.object
 	bpy.context.object.scale[0] = 0
@@ -703,17 +718,17 @@ def toa_do():
     return r_cursor_lcation + 1.0
 
 def pheptinhcong():
-	bpy.data.scenes[nguyenLy_3].UngSuatPhapTuyenSau_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].UngSuatTiepTuyenSau_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].BienDangSau_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].ChuyenViSau_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].ModulDanHoiSau_NL3 = 1.0
+	bpy.data.scenes[nguyenLy_3].UngSuatPhapTuyenSau_NL3 	= 1.0
+	bpy.data.scenes[nguyenLy_3].UngSuatTiepTuyenSau_NL3 	= 1.0
+	bpy.data.scenes[nguyenLy_3].BienDangSau_NL3 			= 1.0
+	bpy.data.scenes[nguyenLy_3].ChuyenViSau_NL3 			= 1.0
+	bpy.data.scenes[nguyenLy_3].ModulDanHoiSau_NL3 			= 1.0
 	
-	bpy.data.scenes[nguyenLy_3].UngSuatPhapTuyenTruoc_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].UngSuatTiepTuyenTruoc_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].BienDangTruoc_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].ChuyenViTruoc_NL3 = 1.0
-	bpy.data.scenes[nguyenLy_3].ModulDanHoiTruoc_NL3 = 1.0
+	bpy.data.scenes[nguyenLy_3].UngSuatPhapTuyenTruoc_NL3 	= 1.0
+	bpy.data.scenes[nguyenLy_3].UngSuatTiepTuyenTruoc_NL3 	= 1.0
+	bpy.data.scenes[nguyenLy_3].BienDangTruoc_NL3 			= 1.0
+	bpy.data.scenes[nguyenLy_3].ChuyenViTruoc_NL3 			= 1.0
+	bpy.data.scenes[nguyenLy_3].ModulDanHoiTruoc_NL3 		= 1.0
 
 def pheptinhtru():
     print('tru')
@@ -756,12 +771,12 @@ class EventWatcher:
     #'callback' is the cb called if the value if changed
     #'copyValue' indicates if the value needs to be copied (that can be needed as if not old and new value may point onto the same object)
     def __init__( self, context, path, comparer, callback, copyValue ):
-        self.context = context
-        self.path = path
-        self.comparer = comparer
-        self.callback = callback
-        self.copyValue = copyValue
-        self.currentValue = self.GetValue()
+        self.context 		= context
+        self.path 			= path
+        self.comparer 		= comparer
+        self.callback 		= callback
+        self.copyValue 		= copyValue
+        self.currentValue 	= self.GetValue()
 
     def GetValue( self ):
         value = getattr( self.context, self.path )
@@ -787,7 +802,7 @@ def cb_scene_update(context):
 def CompareLocation( l1, l2 ):
     return l1 == l2
 
-def changeEvent():
+def changeEvent_NL1():
 	if bpy.data.scenes[nguyenLy_1].LoaiDatDa_NL1 == 'RAN':
 		bpy.data.scenes[nguyenLy_1].HeSoLuuBien_NL1 = 0.8
 	else:
@@ -795,12 +810,11 @@ def changeEvent():
 	
 #The callback to execute when the cursor's location changes    
 def CompareLocationCallback( watcher, newValue ):
-	calculator(1)
-	'''print(bpy.context.screen.scene.name[0])
-	if bpy.context.screen.scene.name[0] == '1':
-		changeEvent()
-	elif bpy.context.screen.scene.name[0] == '3':
-		calculator(1)'''
+	#print(bpy.context.screen.scene.name[0])
+	if bpy.context.screen.scene.name[0] 	== '1':
+		changeEvent_NL1()
+	elif bpy.context.screen.scene.name[0] 	== '3':
+		calculator(1)
 	#print( 'New value', newValue )
 	
 # excute
@@ -833,23 +847,23 @@ class NguyenLy4:
 	# thể tích khối NÊM
 	the_tich_khoi_nem '''
 	def __init__(self, gd_1, gpv_1, tkn_1, gd_2, gpv_2, tkn_2, gd_3, gpv_3, tkn_3, gd_ctn, gpv_ctn, cr_ctn, tt_khoi_nem):
-		self.goc_doc_1 = gd1
-		self.goc_phuong_vi_1 = gpv_1
-		self.ten_khe_nut_1 = tkn_1
+		self.goc_doc_1 						= gd1
+		self.goc_phuong_vi_1 				= gpv_1
+		self.ten_khe_nut_1 					= tkn_1
 		
-		self.goc_doc_2 = gd2
-		self.goc_phuong_vi_2 = gpv_2
-		self.ten_khe_nut_2 = tkn_2
+		self.goc_doc_2 						= gd2
+		self.goc_phuong_vi_2 				= gpv_2
+		self.ten_khe_nut_2 					= tkn_2
 		
-		self.goc_doc_3 = gd3
-		self.goc_phuong_vi_3 = gpv_3
-		self.ten_khe_nut_3 = tkn_3
+		self.goc_doc_3 						= gd3
+		self.goc_phuong_vi_3 				= gpv_3
+		self.ten_khe_nut_3 					= tkn_3
 		
-		self.goc_doc__cong_trinh_ngam = gd_ctn
+		self.goc_doc__cong_trinh_ngam 		= gd_ctn
 		self.goc_phuong_vi__cong_trinh_ngam = gpv_ctn
-		self.chieu_rong_cong_trinh_ngam = cr_ctn
+		self.chieu_rong_cong_trinh_ngam 	= cr_ctn
 		
-		self.the_tich_khoi_nem = tt_khoi_nem
+		self.the_tich_khoi_nem 				= tt_khoi_nem
 		
 	
 class RegisterParameter(bpy.types.PropertyGroup):
@@ -863,13 +877,13 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	luc_dinh_ket_giua_be_tong_va_dat_da_T2_NL1			= 40.0		#5	Lực dính kết giữa bê tông và đất đá	2	MPa
 	dieu_kien_lo_khoan_NL1								= 'khô/ẩm'	#6	Điều kiện lỗ khoan	Khô/ẩm	-
 	he_so_lam_viec_cua_neo_Dlv_NL1						= 0.9		#7	Hệ số làm việc của neo 	dlv	-
-	he_so_lam_viec_cua_khoa_neo_Dlvz_NL1				= 0.0		#8	Hệ số làm việc của khóa neo 	dlvz	-
-	he_so_tap_trung_ung_suat_keo_K2_NL1					= 0.0		#9	Hệ số tập trung ứng suất kéo 	k2	-
-	he_so_tap_trung_ung_suat_K1_NL1						= 0.0		#10	Hệ số tập trung ứng suất	k1	-
-	chieu_dai_neo_nho_ra_mat_lo_Lk_NL1					= 0.0		#11	Chiều dài neo nhô ra mặt lộ	Lk	-
-	he_so_qua_tai_noc_lo_Np_NL1							= 0.0		#12	Hệ số quá tải nóc lò	np	-
-	he_so_qua_tai_hong_lo_Nph_NL1						= 0.0		#13	Hệ số quá tải hông lò	nph	-
-	he_so_dieu_chinh_chieu_dai_khoa_neo_Kz_NL1			= 0.0		#14	Hệ số điều chỉnh chiều dài khóa neo 	kz	-
+	he_so_lam_viec_cua_khoa_neo_Dlvz_NL1				= 0.8		#8	Hệ số làm việc của khóa neo 	dlvz	-
+	he_so_tap_trung_ung_suat_keo_K2_NL1					= 0.5		#9	Hệ số tập trung ứng suất kéo 	k2	-
+	he_so_tap_trung_ung_suat_K1_NL1						= 2.0		#10	Hệ số tập trung ứng suất	k1	-
+	chieu_dai_neo_nho_ra_mat_lo_Lk_NL1					= 0.06		#11	Chiều dài neo nhô ra mặt lộ	Lk	-
+	he_so_qua_tai_noc_lo_Np_NL1							= 1.2		#12	Hệ số quá tải nóc lò	np	-
+	he_so_qua_tai_hong_lo_Nph_NL1						= 1.2		#13	Hệ số quá tải hông lò	nph	-
+	he_so_dieu_chinh_chieu_dai_khoa_neo_Kz_NL1			= 0.55		#14	Hệ số điều chỉnh chiều dài khóa neo 	kz	-
 	
 	bpy.types.Scene.DuongKinhThepNeoDn_NL1				= FloatProperty(name = "Đường kính thép neo Dn", default = duong_kinh_kheo_neo_Dn_NL1)
 	bpy.types.Scene.KhaNangChiuKeoThepNeoRN_NL1			= FloatProperty(name = "Khả năng chịu kéo thép neo Rn", default = kha_nang_chiu_keo_thep_neo_RN_NL1)
