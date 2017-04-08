@@ -54,31 +54,31 @@ class ToolPanel_NEO(bpy.types.Panel):
 			#todo
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'DuongKinhThepNeoDn_NL1')
+			row.prop(scn, 'DuongKinhThepNeo_Dn_NL1')
 			row.label("(m)")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'KhaNangChiuKeoThepNeoRN_NL1')
+			row.prop(scn, 'KhaNangChiuKeoThepNeo_Rn_NL1')
 			row.label("(MPa)")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'DuongKinhLoKhoanDlk_NL1')
+			row.prop(scn, 'DuongKinhLoKhoan_Dlk_NL1')
 			row.label("(m)")
 			
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'LucDinhKetGiuaBeTongVaThanhNeo_NL1')
+			row.prop(scn, 'LucDinhKetGiuaBeTongVaThanhNeo_T1_NL1')
 			row.label("(MPa)")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'LucDinhKetGiuaBeTongVaDatDa_NL1')
+			row.prop(scn, 'LucDinhKetGiuaBeTongVaDatDa_T2_NL1')
 			row.label("(MPa)")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'DieuKienLoKhoan_NL1')
+			row.prop(scn, 'DieuKienLoKhoan_Dlv_NL1')
 			row.label(" ")
 			
 			row = layout.row()
@@ -88,38 +88,43 @@ class ToolPanel_NEO(bpy.types.Panel):
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoLamViecCuaKhoaNeoDlvz_NL1')
+			row.prop(scn, 'HeSoLamViecCuaKhoaNeo_Dlvz_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoTapTrungUngSuatKeoK2_NL1')
+			row.prop(scn, 'HeSoTapTrungUngSuatKeo_K2_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoTapTrungUngSuatK1_NL1')
+			row.prop(scn, 'HeSoTapTrungUngSuat_K1_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'ChieuDaiNeoNhoRaMatLoLk_NL1')
+			row.prop(scn, 'ChieuDaiNeoNhoRaMatLo_Lk_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoQuaTaiNocLoNp_NL1')
+			row.prop(scn, 'HeSoQuaTaiNocLo_Np_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoQuaTaiHongLoNph_NL1')
+			row.prop(scn, 'HeSoQuaTaiHongLo_Nph_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoDieuChinhChieuDaiKhoaNeoKz_NL1')
+			row.prop(scn, 'HeSoDieuChinhChieuDaiKhoaNeo_Kz_NL1')
 			row.label(" ")
+			
+			row = layout.row()
+			row = col.split(percentage=title_size, align=True)
+			row.prop(scn, 'ChieuDaiKhoaNeo_Lz_NL1')
+			row.label("(m)")
 			
 			#bpy.app.handlers.scene_update_post.append(cb_scene_update)
 			#EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], "LoaiDatDa_NL1", CompareLocation, CompareLocationCallback, True ) )
@@ -254,18 +259,23 @@ class ToolPanel_DATDA(bpy.types.Panel):
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoTapTrungUngSuatKeoK2_NL1')
+			row.prop(scn, 'HeSoTapTrungUngSuatKeo_K2_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoTapTrungUngSuatK1_NL1')
+			row.prop(scn, 'HeSoTapTrungUngSuat_K1_NL1')
 			row.label(" ")
 			
 			row = layout.row()
 			row = col.split(percentage=title_size, align=True)
 			row.prop(scn, 'ChieuDayPhanLopTrungBinhB_NL1')
 			row.label("(m)")
+			
+			row = layout.row()
+			row = col.split(percentage=title_size, align=True)
+			row.prop(scn, 'HeSoGiamYeuCauTrucKc_NL1')
+			row.label(" ")
 			
 			bpy.app.handlers.scene_update_post.append(cb_scene_update)
 			EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[nguyenLy], "LoaiDatDa_NL1", CompareLocation, CompareLocationCallback, True ) )
@@ -448,6 +458,10 @@ class initOutPut(bpy.types.Panel):
 		nguyenLy	= bpy.context.screen.scene.name
 		
 		if nguyenLy[0] == '1':
+			
+			row = layout.row()   
+			row.operator("ui_custom.result")
+			
 			# New box
 			box = layout.box()
 			col = box.column()
@@ -455,19 +469,19 @@ class initOutPut(bpy.types.Panel):
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'HeSoOnDinhDatDaVachNv_NL1')
+			row.prop(scn, 'HeSoOnDinhDatDaVach_Nv_NL1')
 			row.label(" ")
 			
 			row = layout.row()        
 			row = col.split(percentage=title_size, align=True)
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
-			row.prop(scn, 'HeSoOnDinhDatDaHongNh_NL1')
+			row.prop(scn, 'HeSoOnDinhDatDaHong_Nh_NL1')
 			row.label(" ")
 			
 			row = layout.row()  
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'ChieuCaoVomSupLoB_NL1')
+			row.prop(scn, 'ChieuCaoVomSupLo_B_NL1')
 			row.label("(m)")
 			
 			# New box
@@ -477,7 +491,7 @@ class initOutPut(bpy.types.Panel):
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'KhaNangChiuLuc1ThanhNeoPn_NL1')
+			row.prop(scn, 'KhaNangChiuLuc1ThanhNeo_Pn_NL1')
 			row.label("(MN)")
 			
 			# New box
@@ -487,19 +501,19 @@ class initOutPut(bpy.types.Panel):
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'ChieuDai1ThanhNeoNocLn_NL1')
+			row.prop(scn, 'ChieuDai1ThanhNeoNoc_Ln_NL1')
 			row.label("(m)")
 			
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'MatDoNeoVachSn_NL1')
+			row.prop(scn, 'MatDoNeoVach_Sn_NL1')
 			row.label("(neo/m2)")
 			
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'KhoangCachNeoVachA1_NL1')
+			row.prop(scn, 'KhoangCachNeoVach_A1_NL1')
 			row.label("(m)")
 			
 			# New box
@@ -509,19 +523,19 @@ class initOutPut(bpy.types.Panel):
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'ChieuDai1ThanhNeoHongLh_NL1')
+			row.prop(scn, 'ChieuDai1ThanhNeoHong_Lh_NL1')
 			row.label("(m)")
 			
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'MatDoNeoHongSh_NL1')
+			row.prop(scn, 'MatDoNeoHong_Sh_NL1')
 			row.label("(neo/m2)")
 			
 			row = layout.row()        
 			#row.label(text="Hệ số ổn định đất đá vách Nv")
 			row = col.split(percentage=title_size, align=True)
-			row.prop(scn, 'KhoangCachNeoHongA2_NL1')
+			row.prop(scn, 'KhoangCachNeoHong_A2_NL1')
 			row.label("(m)")
 			
 		elif nguyenLy[0] == '2':
@@ -605,10 +619,83 @@ class KetQuaTinh(bpy.types.Operator):
 	def execute(self, context):
 		#scn = context.scene
 		scene = bpy.context.scene
-		if bpy.context.screen.scene.name[0] == '1':
+		nguyenLy = bpy.context.screen.scene.name
+		if nguyenLy[0] == '1':
 			#ToDo
 			print('Đang xử lý sự kiện tính toán')
-		elif bpy.context.screen.scene.name[0] == '3':
+			nguyenLy1 = NguyenLy1(bpy.data.scenes[nguyenLy].DuongKinhThepNeo_Dn_NL1,
+								bpy.data.scenes[nguyenLy].KhaNangChiuKeoThepNeo_Rn_NL1,
+								bpy.data.scenes[nguyenLy].DuongKinhLoKhoan_Dlk_NL1,
+								bpy.data.scenes[nguyenLy].LucDinhKetGiuaBeTongVaThanhNeo_T1_NL1,
+								bpy.data.scenes[nguyenLy].LucDinhKetGiuaBeTongVaDatDa_T2_NL1,
+								bpy.data.scenes[nguyenLy].DieuKienLoKhoan_Dlv_NL1,
+								bpy.data.scenes[nguyenLy].HeSoLamViecCuaKhoaNeo_Dlvz_NL1,
+								bpy.data.scenes[nguyenLy].ChieuDaiNeoNhoRaMatLo_Lk_NL1,
+								bpy.data.scenes[nguyenLy].HeSoQuaTaiNocLo_Np_NL1,
+								bpy.data.scenes[nguyenLy].HeSoQuaTaiHongLo_Nph_NL1,
+								bpy.data.scenes[nguyenLy].HeSoDieuChinhChieuDaiKhoaNeo_Kz_NL1,
+								bpy.data.scenes[nguyenLy].ChieuDaiKhoaNeo_Lz_NL1,
+								bpy.data.scenes[nguyenLy].TrongLuongTheTich_NL1,
+								bpy.data.scenes[nguyenLy].UngSuatKeoDatDaVach_NL1,
+								bpy.data.scenes[nguyenLy].UngSuatNenDatDaVach_NL1,
+								bpy.data.scenes[nguyenLy].GocMaSatTrong_NL1,
+								bpy.data.scenes[nguyenLy].HoSoPoisson_NL1,
+								bpy.data.scenes[nguyenLy].LoaiDatDa_NL1,
+								bpy.data.scenes[nguyenLy].HeSoLuuBien_NL1,
+								bpy.data.scenes[nguyenLy].HeSoTapTrungUngSuatKeo_K2_NL1,
+								bpy.data.scenes[nguyenLy].HeSoTapTrungUngSuat_K1_NL1,
+								bpy.data.scenes[nguyenLy].ChieuDayPhanLopTrungBinhB_NL1,
+								bpy.data.scenes[nguyenLy].HeSoGiamYeuCauTrucKc_NL1,
+								bpy.data.scenes[nguyenLy].ChieuSauH_NL1,
+								bpy.data.scenes[nguyenLy].ChieuRong2a_NL1,
+								bpy.data.scenes[nguyenLy].ChieuCaoH1_NL1,
+								bpy.data.scenes[nguyenLy].ChieuCaoTuongLoH2_NL1)
+			#NEO
+			'''nguyenLy1.Dn 			= bpy.data.scenes[nguyenLy].DuongKinhThepNeo_Dn_NL1
+			nguyenLy1.Rk 			= bpy.data.scenes[nguyenLy].KhaNangChiuKeoThepNeo_Rn_NL1
+			nguyenLy1.Dlk 			= bpy.data.scenes[nguyenLy].DuongKinhLoKhoan_Dlk_NL1
+			nguyenLy1.T1 			= bpy.data.scenes[nguyenLy].LucDinhKetGiuaBeTongVaThanhNeo_T1_NL1
+			nguyenLy1.T2 			= bpy.data.scenes[nguyenLy].LucDinhKetGiuaBeTongVaDatDa_T2_NL1
+			nguyenLy1.Dlv 			= bpy.data.scenes[nguyenLy].DieuKienLoKhoan_Dlv_NL1
+			nguyenLy1.Dlvz 			= bpy.data.scenes[nguyenLy].HeSoLamViecCuaKhoaNeo_Dlvz_NL1
+			nguyenLy1.Lk 			= bpy.data.scenes[nguyenLy].ChieuDaiNeoNhoRaMatLo_Lk_NL1
+			nguyenLy1.Np 			= bpy.data.scenes[nguyenLy].HeSoQuaTaiNocLo_Np_NL1
+			nguyenLy1.Nph 			= bpy.data.scenes[nguyenLy].HeSoQuaTaiHongLo_Nph_NL1
+			nguyenLy1.Kz 			= bpy.data.scenes[nguyenLy].HeSoDieuChinhChieuDaiKhoaNeo_Kz_NL1
+			nguyenLy1.Lz 			= bpy.data.scenes[nguyenLy].ChieuDaiKhoaNeo_Lz_NL1
+						
+			# DatDa
+			nguyenLy1.Y 			= bpy.data.scenes[nguyenLy].TrongLuongTheTich_NL1
+			nguyenLy1.u_s_k_d_d_v 	= bpy.data.scenes[nguyenLy].UngSuatKeoDatDaVach_NL1
+			nguyenLy1.u_s_n_d_d_v 	= bpy.data.scenes[nguyenLy].UngSuatNenDatDaVach_NL1
+			nguyenLy1.g_m_s_t 		= bpy.data.scenes[nguyenLy].GocMaSatTrong_NL1
+			nguyenLy1.h_s_P 		= bpy.data.scenes[nguyenLy].HoSoPoisson_NL1
+			nguyenLy1.l_d_d 		= bpy.data.scenes[nguyenLy].LoaiDatDa_NL1
+			nguyenLy1.hs_l_b 		= bpy.data.scenes[nguyenLy].HeSoLuuBien_NL1
+			nguyenLy1.K2 			= bpy.data.scenes[nguyenLy].HeSoTapTrungUngSuatKeo_K2_NL1
+			nguyenLy1.K1 			= bpy.data.scenes[nguyenLy].HeSoTapTrungUngSuat_K1_NL1
+			nguyenLy1.cd_pl_tb_B 	= bpy.data.scenes[nguyenLy].ChieuDayPhanLopTrungBinhB_NL1
+			nguyenLy1.Kc 			= bpy.data.scenes[nguyenLy].HeSoGiamYeuCauTrucKc_NL1
+			
+			#-Cong trinh ngam
+			nguyenLy1.c_s_H 		= bpy.data.scenes[nguyenLy].ChieuSauH_NL1
+			nguyenLy1.c_r_2a 		= bpy.data.scenes[nguyenLy].ChieuRong2a_NL1
+			nguyenLy1.c_c_H1 		= bpy.data.scenes[nguyenLy].ChieuCaoH1_NL1
+			nguyenLy1.c_c_t_l_H2 	= bpy.data.scenes[nguyenLy].ChieuCaoTuongLoH2_NL1'''
+			
+			# Đầu ra
+			bpy.data.scenes[nguyenLy].HeSoOnDinhDatDaVach_Nv_NL1 		= nguyenLy1.he_so_on_dinh_dat_da_vach_Nv
+			bpy.data.scenes[nguyenLy].HeSoOnDinhDatDaHong_Nh_NL1 		= nguyenLy1.he_so_on_dinh_dat_da_hong_Nh
+			bpy.data.scenes[nguyenLy].ChieuCaoVomSupLo_B_NL1 			= nguyenLy1.chieu_cao_vom_sup_lo_B
+			bpy.data.scenes[nguyenLy].KhaNangChiuLuc1ThanhNeo_Pn_NL1 	= nguyenLy1.kha_nang_chiu_luc_1_thanh_neo_Pn
+			bpy.data.scenes[nguyenLy].ChieuDai1ThanhNeoNoc_Ln_NL1 		= nguyenLy1.chieu_dai_1_thanh_neo_noc_Ln
+			bpy.data.scenes[nguyenLy].ChieuDai1ThanhNeoHong_Lh_NL1 		= nguyenLy1.chieu_dai_1_thanh_neo_hong_Lh
+			bpy.data.scenes[nguyenLy].MatDoNeoVach_Sn_NL1 				= nguyenLy1.mat_do_neo_vach_Sn
+			bpy.data.scenes[nguyenLy].KhoangCachNeoVach_A1_NL1 			= nguyenLy1.khoang_cach_neo_vach_A1
+			bpy.data.scenes[nguyenLy].MatDoNeoHong_Sh_NL1 				= nguyenLy1.mat_do_neo_hong_Sh
+			bpy.data.scenes[nguyenLy].KhoangCachNeoHong_A2_NL1			= nguyenLy1.khoang_cach_neo_hong_A2
+						
+		elif nguyenLy[0] == '3':
 			# Delete Cylinder
 			for ob in scene.objects:
 				if ob.type == 'MESH' and ob.name.startswith("Cylinder"):
@@ -621,7 +708,7 @@ class KetQuaTinh(bpy.types.Operator):
 			
 				#print(obj.name)
 			calculator(0) # 0: ĐỂ VẼ HÌNH
-		elif bpy.context.screen.scene.name[0] == '4':
+		elif nguyenLy[0] == '4':
 			for ob in scene.objects:
 				if ob.type == 'MESH' and ob.name.startswith("Circle"):
 					ob.select = True
@@ -836,54 +923,13 @@ def CompareLocationCallback( watcher, newValue ):
 #EventWatcher.AddWatcher( EventWatcher( bpy.data.scenes[0], "cursor_location", CompareLocation, CompareLocationCallback, True ) )
 ###########################################################
 
-class NguyenLy4:
-	'''# Khe nứt 1
-	goc_doc_1
-	goc_phuong_vi_1
-	ten_khe_nut_1
-	
-	# Khe nứt 2
-	goc_doc_2
-	goc_phuong_vi_2
-	ten_khe_nut_2
-	
-	# Khe nứt 3
-	goc_doc_3
-	goc_phuong_vi_3
-	ten_khe_nut_3
-	
-	# Góc phương vị của Công trình ngầm
-	goc_doc__cong_trinh_ngam
-	goc_phuong_vi__cong_trinh_ngam
-	chieu_rong_cong_trinh_ngam
-	
-	# thể tích khối NÊM
-	the_tich_khoi_nem '''
-	def __init__(self, gd_1, gpv_1, tkn_1, gd_2, gpv_2, tkn_2, gd_3, gpv_3, tkn_3, gd_ctn, gpv_ctn, cr_ctn, tt_khoi_nem):
-		self.goc_doc_1 						= gd1
-		self.goc_phuong_vi_1 				= gpv_1
-		self.ten_khe_nut_1 					= tkn_1
-		
-		self.goc_doc_2 						= gd2
-		self.goc_phuong_vi_2 				= gpv_2
-		self.ten_khe_nut_2 					= tkn_2
-		
-		self.goc_doc_3 						= gd3
-		self.goc_phuong_vi_3 				= gpv_3
-		self.ten_khe_nut_3 					= tkn_3
-		
-		self.goc_doc__cong_trinh_ngam 		= gd_ctn
-		self.goc_phuong_vi__cong_trinh_ngam = gpv_ctn
-		self.chieu_rong_cong_trinh_ngam 	= cr_ctn
-		
-		self.the_tich_khoi_nem 				= tt_khoi_nem
 		
 	
 class RegisterParameter(bpy.types.PropertyGroup):
 	### NGUYEN LY 1 ###
 	# TO DO
 	#-NEO
-	duong_kinh_kheo_neo_Dn_NL1							= 0.02		#1	Đường kính thép neo	dn	m
+	duong_kinh_thep_neo_Dn_NL1							= 0.02		#1	Đường kính thép neo	dn	m
 	kha_nang_chiu_keo_thep_neo_RN_NL1					= 210.0		#2	Khả năng chịu kéo thép neo	Rn	MPa
 	duong_kinh_lo_khoan_Dlk_NL1							= 0.04		#3	Đường kính lỗ khoan	dlk	m #
 	luc_dinh_ket_giua_be_tong_va_thanh_neo_T1_NL1		= 50.0		#4	Lực dính kết giữa bê tông và thanh neo	1	MPa #
@@ -891,27 +937,29 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	dieu_kien_lo_khoan_NL1								= 'khô/ẩm'	#6	Điều kiện lỗ khoan	Khô/ẩm	-
 	he_so_lam_viec_cua_neo_Dlv_NL1						= 0.9		#7	Hệ số làm việc của neo 	dlv	-
 	he_so_lam_viec_cua_khoa_neo_Dlvz_NL1				= 0.8		#8	Hệ số làm việc của khóa neo 	dlvz	-
-	he_so_tap_trung_ung_suat_keo_K2_NL1					= 0.5		#9	Hệ số tập trung ứng suất kéo 	k2	-
-	he_so_tap_trung_ung_suat_K1_NL1						= 2.0		#10	Hệ số tập trung ứng suất	k1	-
+	#he_so_tap_trung_ung_suat_keo_K2_NL1					= 0.5		#9	Hệ số tập trung ứng suất kéo 	k2	-
+	#he_so_tap_trung_ung_suat_K1_NL1						= 2.0		#10	Hệ số tập trung ứng suất	k1	-
 	chieu_dai_neo_nho_ra_mat_lo_Lk_NL1					= 0.06		#11	Chiều dài neo nhô ra mặt lộ	Lk	-
 	he_so_qua_tai_noc_lo_Np_NL1							= 1.2		#12	Hệ số quá tải nóc lò	np	-
 	he_so_qua_tai_hong_lo_Nph_NL1						= 1.2		#13	Hệ số quá tải hông lò	nph	-
 	he_so_dieu_chinh_chieu_dai_khoa_neo_Kz_NL1			= 0.55		#14	Hệ số điều chỉnh chiều dài khóa neo 	kz	-
+	chieu_dai_khoa_neo_Lz_NL1							= 0.3		#	Chiều dài khóa neo 	Lz	-
 	
-	bpy.types.Scene.DuongKinhThepNeoDn_NL1				= FloatProperty(name = "Đường kính thép neo Dn", default = duong_kinh_kheo_neo_Dn_NL1)
-	bpy.types.Scene.KhaNangChiuKeoThepNeoRN_NL1			= FloatProperty(name = "Khả năng chịu kéo thép neo Rn", default = kha_nang_chiu_keo_thep_neo_RN_NL1)
-	bpy.types.Scene.DuongKinhLoKhoanDlk_NL1				= FloatProperty(name = "Đường kính lỗ khoan Dlk", default = duong_kinh_lo_khoan_Dlk_NL1)
-	bpy.types.Scene.LucDinhKetGiuaBeTongVaThanhNeo_NL1	= FloatProperty(name = "Lực dính kết giữa bê tông và thanh neo", default = luc_dinh_ket_giua_be_tong_va_thanh_neo_T1_NL1)
-	bpy.types.Scene.LucDinhKetGiuaBeTongVaDatDa_NL1		= FloatProperty(name = "Lực dính kết giữa bê tông và đất đá", default = luc_dinh_ket_giua_be_tong_va_dat_da_T2_NL1)
-	bpy.types.Scene.DieuKienLoKhoan_NL1					= EnumProperty(name = "Điều kiện lỗ khoan(Khô/ẩm)", items = arrDieuKienLoKhoan) #default = dieu_kien_lo_khoan_NL1, 
-	bpy.types.Scene.HeSoLamViecCuaNeoDlv_NL1			= FloatProperty(name = "Hệ số làm việc của neo Dlv", default = he_so_lam_viec_cua_neo_Dlv_NL1)
-	bpy.types.Scene.HeSoLamViecCuaKhoaNeoDlvz_NL1		= FloatProperty(name = "Hệ số làm việc của khóa neo Dlvz", default = he_so_lam_viec_cua_khoa_neo_Dlvz_NL1)
-	bpy.types.Scene.HeSoTapTrungUngSuatKeoK2_NL1		= FloatProperty(name = "Hệ số tập trung ứng suất kéo k2", default = he_so_tap_trung_ung_suat_keo_K2_NL1)
-	bpy.types.Scene.HeSoTapTrungUngSuatK1_NL1			= FloatProperty(name = "Hệ số tập trung ứng suất k1", default = he_so_tap_trung_ung_suat_K1_NL1)
-	bpy.types.Scene.ChieuDaiNeoNhoRaMatLoLk_NL1			= FloatProperty(name = "Chiều dài neo nhô ra mặt lộ Lk", default = chieu_dai_neo_nho_ra_mat_lo_Lk_NL1)
-	bpy.types.Scene.HeSoQuaTaiNocLoNp_NL1				= FloatProperty(name = "Hệ số quá tải nóc lò Np", default = he_so_qua_tai_noc_lo_Np_NL1)
-	bpy.types.Scene.HeSoQuaTaiHongLoNph_NL1				= FloatProperty(name = "Hệ số quá tải hông lò Nph", default = he_so_qua_tai_hong_lo_Nph_NL1)
-	bpy.types.Scene.HeSoDieuChinhChieuDaiKhoaNeoKz_NL1	= FloatProperty(name = "Hệ số điều chỉnh chiều dài khóa neo Kz", default = he_so_dieu_chinh_chieu_dai_khoa_neo_Kz_NL1)
+	bpy.types.Scene.DuongKinhThepNeo_Dn_NL1				= FloatProperty(name = "Đường kính thép neo Dn", default = duong_kinh_thep_neo_Dn_NL1)
+	bpy.types.Scene.KhaNangChiuKeoThepNeo_Rn_NL1			= FloatProperty(name = "Khả năng chịu kéo thép neo Rn", default = kha_nang_chiu_keo_thep_neo_RN_NL1)
+	bpy.types.Scene.DuongKinhLoKhoan_Dlk_NL1				= FloatProperty(name = "Đường kính lỗ khoan Dlk", default = duong_kinh_lo_khoan_Dlk_NL1)
+	bpy.types.Scene.LucDinhKetGiuaBeTongVaThanhNeo_T1_NL1	= FloatProperty(name = "Lực dính kết giữa bê tông và thanh neo", default = luc_dinh_ket_giua_be_tong_va_thanh_neo_T1_NL1)
+	bpy.types.Scene.LucDinhKetGiuaBeTongVaDatDa_T2_NL1		= FloatProperty(name = "Lực dính kết giữa bê tông và đất đá", default = luc_dinh_ket_giua_be_tong_va_dat_da_T2_NL1)
+	bpy.types.Scene.DieuKienLoKhoan_Dlv_NL1					= EnumProperty(name = "Điều kiện lỗ khoan(Khô/ẩm)", items = arrDieuKienLoKhoan) #default = dieu_kien_lo_khoan_NL1, 
+	bpy.types.Scene.HeSoLamViecCuaNeoDlv_NL1			= FloatProperty(name = "Hệ số làm việc của neo Dlv", default = he_so_lam_viec_cua_neo_Dlv_NL1, min = 0.9, max = 1.0)
+	bpy.types.Scene.HeSoLamViecCuaKhoaNeo_Dlvz_NL1		= FloatProperty(name = "Hệ số làm việc của khóa neo Dlvz", default = he_so_lam_viec_cua_khoa_neo_Dlvz_NL1)
+	#bpy.types.Scene.HeSoTapTrungUngSuatKeo_K2_NL1		= FloatProperty(name = "Hệ số tập trung ứng suất kéo k2", default = he_so_tap_trung_ung_suat_keo_K2_NL1, min = 0.23, max = 1.0)
+	#bpy.types.Scene.HeSoTapTrungUngSuat_K1_NL1			= FloatProperty(name = "Hệ số tập trung ứng suất k1", default = he_so_tap_trung_ung_suat_K1_NL1)
+	bpy.types.Scene.ChieuDaiNeoNhoRaMatLo_Lk_NL1			= FloatProperty(name = "Chiều dài neo nhô ra mặt lộ Lk", default = chieu_dai_neo_nho_ra_mat_lo_Lk_NL1)
+	bpy.types.Scene.HeSoQuaTaiNocLo_Np_NL1				= FloatProperty(name = "Hệ số quá tải nóc lò Np", default = he_so_qua_tai_noc_lo_Np_NL1)
+	bpy.types.Scene.HeSoQuaTaiHongLo_Nph_NL1				= FloatProperty(name = "Hệ số quá tải hông lò Nph", default = he_so_qua_tai_hong_lo_Nph_NL1)
+	bpy.types.Scene.HeSoDieuChinhChieuDaiKhoaNeo_Kz_NL1	= FloatProperty(name = "Hệ số điều chỉnh chiều dài khóa neo Kz", default = he_so_dieu_chinh_chieu_dai_khoa_neo_Kz_NL1)
+	bpy.types.Scene.ChieuDaiKhoaNeo_Lz_NL1				= FloatProperty(name = "Chiều dài khóa neo Ln", default = chieu_dai_khoa_neo_Lz_NL1, min = 0.3, max = 0.4)
 
 	#-DATDA
 	trong_luong_the_tich_NL1							= 2.6		#1	Trọng lượng thể tích		T/m3
@@ -922,8 +970,9 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	loai_dat_da_NL1										= 'Rắn/Yếu'	#6	Loại đất đá	Rắn/Yếu	-
 	he_so_luu_bien_NL1									= 0.8		#7	Hệ số lưu biến		-
 	he_so_tap_trung_ung_suat_keo_K2_NL1					= 0.5		#8	Hệ số tập trung ứng suất kéo	k2	-
-	he_so_tap_trung_ung_suat_K1_NL1						= 0.0		#9	Hệ số tập trung ứng suất	k1	-
+	he_so_tap_trung_ung_suat_K1_NL1						= 2.0		#9	Hệ số tập trung ứng suất	k1	-
 	chieu_day_phan_lop_trung_binh_B_NL1					= 1.6		#10	Chiều dày phân lớp trung bình	b	m
+	he_so_giam_yeu_cau_truc_Kc_NL1						= 0.6		#	Hệ số giảm yếu cấu trúc Kc
 
 	bpy.types.Scene.TrongLuongTheTich_NL1				= FloatProperty(name = "Trọng lượng thể tích", default = trong_luong_the_tich_NL1)
 	bpy.types.Scene.UngSuatKeoDatDaVach_NL1				= FloatProperty(name = "Ứng suất kéo đất đá vách", default = ung_suat_keo_dat_da_NL1)
@@ -932,9 +981,10 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	bpy.types.Scene.HoSoPoisson_NL1						= FloatProperty(name = "Hệ số Poisson", default = he_so_Poisson_NL1)
 	bpy.types.Scene.LoaiDatDa_NL1						= EnumProperty(name = "Loại đất đá (Rắn/Yếu)", items = arrLoaiDatDa) #, default = loai_dat_da_NL1
 	bpy.types.Scene.HeSoLuuBien_NL1						= FloatProperty(name = "Hệ số lưu biến", default = he_so_luu_bien_NL1)
-	bpy.types.Scene.HeSoTapTrungUngSuatKeoK2_NL1		= FloatProperty(name = "Hệ số tập trung ứng suất kéo K2", default = he_so_tap_trung_ung_suat_keo_K2_NL1)
-	bpy.types.Scene.HeSoTapTrungUngSuatK1_NL1			= FloatProperty(name = "Hệ số tập trung ứng suất K1", default = he_so_tap_trung_ung_suat_K1_NL1)
+	bpy.types.Scene.HeSoTapTrungUngSuatKeo_K2_NL1		= FloatProperty(name = "Hệ số tập trung ứng suất kéo K2", default = he_so_tap_trung_ung_suat_keo_K2_NL1)
+	bpy.types.Scene.HeSoTapTrungUngSuat_K1_NL1			= FloatProperty(name = "Hệ số tập trung ứng suất K1", default = he_so_tap_trung_ung_suat_K1_NL1)
 	bpy.types.Scene.ChieuDayPhanLopTrungBinhB_NL1		= FloatProperty(name = "Chiều dày phân lớp trung bình B", default = chieu_day_phan_lop_trung_binh_B_NL1)
+	bpy.types.Scene.HeSoGiamYeuCauTrucKc_NL1			= FloatProperty(name = "Hệ số giảm yếu cấu trúc Kc", default = he_so_giam_yeu_cau_truc_Kc_NL1)
 
 	#-Cong trinh ngam
 	chieu_sau_H_NL1										= 120.0		#1	Chiều sâu 	H	m
@@ -946,6 +996,8 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	bpy.types.Scene.ChieuRong2a_NL1						= FloatProperty(name = "Chiều rộng 2a", default = chieu_rong_2a_NL1)
 	bpy.types.Scene.ChieuCaoH1_NL1						= FloatProperty(name = "Chiều cao h1", default = chieu_cao_H1_NL1)
 	bpy.types.Scene.ChieuCaoTuongLoH2_NL1				= FloatProperty(name = "Chiều cao tường lò h2", default = chieu_cao_tuong_lo_H2_NL1)
+	
+	#-
 	
 	# Đầu ra Nguyên Lý 1
 	he_so_on_dinh_dat_da_vach_Nv_NL1					= 10.81		#1	Hệ số ổn định đất đá vách	nv	-
@@ -959,16 +1011,16 @@ class RegisterParameter(bpy.types.PropertyGroup):
 	mat_do_neo_hong_Sh_NL1								= 1.15		#9	Mật độ neo hông	Sh	neo/m2
 	khoang_cach_neo_hong_A2_NL1							= 0.93		#10	Khoảng cách neo hông	a2	m
 	
-	bpy.types.Scene.HeSoOnDinhDatDaVachNv_NL1			= FloatProperty(name = "Hệ số ổn định đất đá vách Nv", default = he_so_on_dinh_dat_da_vach_Nv_NL1)
-	bpy.types.Scene.HeSoOnDinhDatDaHongNh_NL1			= FloatProperty(name = "Hệ số ổn định đất đá hông Nh", default = he_so_on_dinh_dat_da_hong_Nh_NL1)
-	bpy.types.Scene.ChieuCaoVomSupLoB_NL1				= FloatProperty(name = "Chiều cao vòm sụp lở B", default = chieu_cao_vom_sup_lo_B_NL1)
-	bpy.types.Scene.KhaNangChiuLuc1ThanhNeoPn_NL1		= FloatProperty(name = "Khả năng chịu lực 1 thanh neo Pn", default = kha_nang_chiu_luc_1_thanh_neo_Pn_NL1)
-	bpy.types.Scene.ChieuDai1ThanhNeoNocLn_NL1			= FloatProperty(name = "Chiều dài 1 thanh neo nóc Ln", default = chieu_dai_1_thanh_neo_noc_Ln_NL1)
-	bpy.types.Scene.ChieuDai1ThanhNeoHongLh_NL1			= FloatProperty(name = "Chiều dài 1 thanh neo hông Lh", default = chieu_dai_1_thanh_neo_hong_Lh_NL1)
-	bpy.types.Scene.MatDoNeoVachSn_NL1					= FloatProperty(name = "Mật độ neo vách Sn", default = mat_do_neo_vach_Sn_NL1)
-	bpy.types.Scene.KhoangCachNeoVachA1_NL1				= FloatProperty(name = "Khoảng cách neo vách A1", default = khoang_cach_neo_vach_A1_NL1)
-	bpy.types.Scene.MatDoNeoHongSh_NL1					= FloatProperty(name = "Mật độ neo hông Sh", default = mat_do_neo_hong_Sh_NL1)
-	bpy.types.Scene.KhoangCachNeoHongA2_NL1				= FloatProperty(name = "Khoảng cách neo hông A2", default = khoang_cach_neo_hong_A2_NL1)
+	bpy.types.Scene.HeSoOnDinhDatDaVach_Nv_NL1			= FloatProperty(name = "Hệ số ổn định đất đá vách Nv", default = he_so_on_dinh_dat_da_vach_Nv_NL1)
+	bpy.types.Scene.HeSoOnDinhDatDaHong_Nh_NL1			= FloatProperty(name = "Hệ số ổn định đất đá hông Nh", default = he_so_on_dinh_dat_da_hong_Nh_NL1)
+	bpy.types.Scene.ChieuCaoVomSupLo_B_NL1				= FloatProperty(name = "Chiều cao vòm sụp lở B", default = chieu_cao_vom_sup_lo_B_NL1)
+	bpy.types.Scene.KhaNangChiuLuc1ThanhNeo_Pn_NL1		= FloatProperty(name = "Khả năng chịu lực 1 thanh neo Pn", default = kha_nang_chiu_luc_1_thanh_neo_Pn_NL1)
+	bpy.types.Scene.ChieuDai1ThanhNeoNoc_Ln_NL1			= FloatProperty(name = "Chiều dài 1 thanh neo nóc Ln", default = chieu_dai_1_thanh_neo_noc_Ln_NL1)
+	bpy.types.Scene.ChieuDai1ThanhNeoHong_Lh_NL1		= FloatProperty(name = "Chiều dài 1 thanh neo hông Lh", default = chieu_dai_1_thanh_neo_hong_Lh_NL1)
+	bpy.types.Scene.MatDoNeoVach_Sn_NL1					= FloatProperty(name = "Mật độ neo vách Sn", default = mat_do_neo_vach_Sn_NL1)
+	bpy.types.Scene.KhoangCachNeoVach_A1_NL1			= FloatProperty(name = "Khoảng cách neo vách A1", default = khoang_cach_neo_vach_A1_NL1)
+	bpy.types.Scene.MatDoNeoHong_Sh_NL1					= FloatProperty(name = "Mật độ neo hông Sh", default = mat_do_neo_hong_Sh_NL1)
+	bpy.types.Scene.KhoangCachNeoHong_A2_NL1			= FloatProperty(name = "Khoảng cách neo hông A2", default = khoang_cach_neo_hong_A2_NL1)
 
 	###### END NGUYEN LY 1 #####
 	##########################################################################################
@@ -1202,3 +1254,164 @@ def unregister():
 #    return
 if __name__ == "__main__":
 	register()
+
+# Nguyên lý 1 : Nguyên lý Treo
+class NguyenLy1:	
+	def __init__(self, Dn, Rk, Dlk, T1, T2, Dlv, Dlvz, Lk, Np, Nph, Kz, Lz, 											# Neo
+				Y, u_s_k_d_d_v, u_s_n_d_d_v, g_m_s_t, h_s_P, l_d_d, hs_l_b, K2, K1, cd_pl_tb_B, Kc,		# DatDa
+				c_s_H, c_r_2a, c_c_H1, c_c_t_l_H2,																			# CongTrinhNgam
+				):
+		#NEO
+		self.duong_kinh_thep_neo_Dn							= Dn				#1	Đường kính thép neo						dn	m
+		self.kha_nang_chiu_keo_thep_neo_RN					= Rk				#2	Khả năng chịu kéo thép neo				Rn	MPa
+		self.duong_kinh_lo_khoan_Dlk						= Dlk				#3	Đường kính lỗ khoan	dlk	m #
+		self.luc_dinh_ket_giua_be_tong_va_thanh_neo_T1		= T1				#4	Lực dính kết giữa bê tông và thanh neo	1	MPa #
+		self.luc_dinh_ket_giua_be_tong_va_dat_da_T2			= T2				#5	Lực dính kết giữa bê tông và đất đá		2	MPa
+		#self.dieu_kien_lo_khoan							= 'khô/ẩm'			#6	Điều kiện lỗ khoan						Khô/ẩm	-
+		self.he_so_lam_viec_cua_neo_Dlv						= Dlv				#7	Hệ số làm việc của neo 					dlv	-
+		self.he_so_lam_viec_cua_khoa_neo_Dlvz				= Dlvz				#8	Hệ số làm việc của khóa neo 			dlvz	-
+		self.he_so_tap_trung_ung_suat_keo_K2				= K2				#9	Hệ số tập trung ứng suất kéo 			k2	-
+		self.he_so_tap_trung_ung_suat_K1					= K1				#10	Hệ số tập trung ứng suất				k1	-
+		self.chieu_dai_neo_nho_ra_mat_lo_Lk					= Lk				#11	Chiều dài neo nhô ra mặt lộ				Lk	-
+		self.he_so_qua_tai_noc_lo_Np						= Np				#12	Hệ số quá tải nóc lò					np	-
+		self.he_so_qua_tai_hong_lo_Nph						= Np				#13	Hệ số quá tải hông lò					nph	-
+		self.he_so_dieu_chinh_chieu_dai_khoa_neo_Kz			= Kz				#14	Hệ số điều chỉnh chiều dài khóa neo 	kz	-
+		self.chieu_dai_khoa_neo_Lz							= Lz				#	Chiều dài khóa neo 						Lz	-
+		
+		#-DATDA
+		self.trong_luong_the_tich							= Y					#1	Trọng lượng thể tích		T/m3
+		self.ung_suat_keo_dat_da							= u_s_k_d_d_v		#2	Ứng suất kéo đất đá vách	k	T/m2
+		self.ung_suat_nen_dat_dat_vach						= u_s_n_d_d_v		#3	Ứng suất nén đất đá vách	n	T/m2
+		self.goc_ma_sat_trong								= g_m_s_t			#4	Góc ma sát trong		Độ
+		self.he_so_Poisson									= h_s_P				#5	Hệ số Poisson		- 
+		self.loai_dat_da									= l_d_d				#6	Loại đất đá	Rắn/Yếu	-
+		self.he_so_luu_bien									= hs_l_b			#7	Hệ số lưu biến		-
+		self.he_so_tap_trung_ung_suat_keo_K2				= K2		#8	Hệ số tập trung ứng suất kéo	k2	-
+		self.he_so_tap_trung_ung_suat_K1					= K1		#9	Hệ số tập trung ứng suất	k1	-
+		self.chieu_day_phan_lop_trung_binh_B				= cd_pl_tb_B		#10	Chiều dày phân lớp trung bình	b	m
+		self.he_so_giam_yeu_cau_truc_Kc						= Kc				#	Hệ số giảm yếu cấu trúc Kc
+		
+		#-Cong trinh ngam
+		self.chieu_sau_H									= c_s_H				#1	Chiều sâu 	H	m
+		self.chieu_rong_2a									= c_r_2a			#2	Chiều rộng 	2a	m
+		self.chieu_cao_H1									= c_c_H1			#3	Chiều cao	h1	m
+		self.chieu_cao_tuong_lo_H2							= c_c_t_l_H2		#4	Chiều cao tường lò	h2	m
+		
+		#-Dau Ra
+		if l_d_d == 'RAN':
+			hs_day_ngang = h_s_P/(1-h_s_P) 										# hệ số đẩy ngang
+		else:
+			hs_day_ngang = tan(radians(45 - g_m_s_t/2))**2
+				
+		H1 		= c_c_H1
+		
+		a 		= c_r_2a / 2
+		
+		## Hệ số ổn định của đất đá vách
+		Nv 		= (u_s_k_d_d_v * Kc * hs_l_b) / (K2 * hs_day_ngang * Y * c_s_H)		# (4.1)
+		
+		## Hệ số ổn định của đất đá Neo hông
+		Nh 		= (u_s_n_d_d_v * Kc * hs_l_b) / (K1 * hs_day_ngang * Y * c_s_H)		# (4.2)
+		
+		## Tính Chiều cao vòm sụt lở
+		b 		= (a + H1 * cot(radians(45 + g_m_s_t/2))) / (Nv + tan(radians(g_m_s_t)))			# (4.3)
+		##### END
+		
+		## Khả năng chịu lực của thanh Neo: Pc	(4.10)
+		Fc 		= (Dn / 2)**2 * math.pi											# Tính diện tích thanh cốt neo, (m2)
+		Klv 	= Dlv 															# Hệ số làm việc của thanh neo
+		Pc 		= Fc * Rk * Klv													# Khả năng chịu lực của thanh Neo		(1)
+		#Pc 		= 0.2													# Khả năng chịu lực của thanh Neo		(1)
+		##### END
+		
+		## Khả năng chịu lực của thanh Neo với đk với điều kiện dính bám của cốt Neo với bê Tông: Pcb	(4.11)
+		Klvz 	= Dlvz															# Hệ số về điều kiện làm việc của khóa neo
+		Pcb 	= math.pi * Dn * T1 * Lz * Klvz									# Khả năng chịu lực của thanh Neo		(2)
+		##### END 
+		
+		## Khả năng chịu lực của thanh Neo với đk với điều kiện dính bám của Đất đá với bê Tông: Pcb	(4.12)
+		Pbd 	= math.pi * Dlk * T2 * Lz * Kz * Klvz							# Khả năng chịu lực của thanh Neo		(3)
+		##### END 
+		
+		Pn 		= min([Pc, Pcb, Pbd])											#4	Khả năng chịu lực 1 thanh neo	Pn	MN
+		
+		## Tính Chiều dài toàn bộ thanh Neo nóc
+		Ln 		= b + 1.5 * Lz + Lk												# (4.4)
+		##### END
+		
+		## Mật độ Neo S Nóc(vách)
+		Qv 		= b * Y
+		S 		= (Qv * Np) / Pn												# (4.5)
+		##### END
+		
+		## Tính khoảng cách giữa các Neo Nóc lò
+		a1 		= (1/S)**0.5													# (4.6)
+		##### END
+		
+		## Tính Chiều dài toàn bộ thanh neo ở hông lò
+		C 		= H1 * cot(radians(45 + g_m_s_t/2))								# (4.8) Bán kính chiều rộng lò được mở rộng do đất đá trượt 
+		Lh 		= (C/Nh) + Lz + Lk												# (4.7)
+		##### END
+		
+		## Mật độ Neo Hông
+		Qh 		= (b + H1) * Y * hs_day_ngang									# Tải trọng hông lò (MPa)
+		Sh 		= (Qh * Nph) / Pn												# (4.9)
+		##### END
+		
+		## Tính khoảng cách giữa các Neo Hông
+		a2 		= (1/Sh)**0.5													# (4.6) Tương tự a1
+		##### END
+		
+		self.he_so_on_dinh_dat_da_vach_Nv					= Nv				#1	Hệ số ổn định đất đá vách	nv	-
+		self.he_so_on_dinh_dat_da_hong_Nh					= Nh				#2	Hệ số ổn định đất đá hông	nh	-
+		self.chieu_cao_vom_sup_lo_B							= b					#3	Chiều cao vòm sụp lở	b	m
+		self.kha_nang_chiu_luc_1_thanh_neo_Pn				= Pn				#4	Khả năng chịu lực 1 thanh neo	Pn	MN
+		self.chieu_dai_1_thanh_neo_noc_Ln					= Ln				#5	Chiều dài 1 thanh neo nóc	Ln	m
+		self.chieu_dai_1_thanh_neo_hong_Lh					= Lh				#6	Chiều dài 1 thanh neo hông	Lh	m
+		self.mat_do_neo_vach_Sn								= S					#7	Mật độ neo vách	Sn	neo/m2
+		self.khoang_cach_neo_vach_A1						= a1				#8	Khoảng cách neo vách	a1	m
+		self.mat_do_neo_hong_Sh								= Sh				#9	Mật độ neo hông	Sh	neo/m2
+		self.khoang_cach_neo_hong_A2						= a2				#10	Khoảng cách neo hông	a2	m
+		
+# Nguyên lý 4 : Tính khối NÊM
+class NguyenLy4:
+	'''# Khe nứt 1
+	goc_doc_1
+	goc_phuong_vi_1
+	ten_khe_nut_1
+	
+	# Khe nứt 2
+	goc_doc_2
+	goc_phuong_vi_2
+	ten_khe_nut_2
+	
+	# Khe nứt 3
+	goc_doc_3
+	goc_phuong_vi_3
+	ten_khe_nut_3
+	
+	# Góc phương vị của Công trình ngầm
+	goc_doc__cong_trinh_ngam
+	goc_phuong_vi__cong_trinh_ngam
+	chieu_rong_cong_trinh_ngam
+	
+	# thể tích khối NÊM
+	the_tich_khoi_nem '''
+	def __init__(self, gd_1, gpv_1, tkn_1, gd_2, gpv_2, tkn_2, gd_3, gpv_3, tkn_3, gd_ctn, gpv_ctn, cr_ctn, tt_khoi_nem):
+		self.goc_doc_1 						= gd1
+		self.goc_phuong_vi_1 				= gpv_1
+		self.ten_khe_nut_1 					= tkn_1
+		
+		self.goc_doc_2 						= gd2
+		self.goc_phuong_vi_2 				= gpv_2
+		self.ten_khe_nut_2 					= tkn_2
+		
+		self.goc_doc_3 						= gd3
+		self.goc_phuong_vi_3 				= gpv_3
+		self.ten_khe_nut_3 					= tkn_3
+		
+		self.goc_doc__cong_trinh_ngam 		= gd_ctn
+		self.goc_phuong_vi__cong_trinh_ngam = gpv_ctn
+		self.chieu_rong_cong_trinh_ngam 	= cr_ctn
+		
+		self.the_tich_khoi_nem 				= tt_khoi_nem
