@@ -70,8 +70,8 @@ class INFO_HT_header(Header):
 			row.label(bpy.app.autoexec_fail_message)
 			return
 
-		row.operator("wm.splash", text="", icon='BLENDER', emboss=False)
-		row.label(text=scene.statistics(), translate=False)
+		#row.operator("wm.splash", text="", icon='BLENDER', emboss=False)
+		#row.label(text=scene.statistics(), translate=False)
 
 
 class INFO_MT_editor_menus(Menu):
