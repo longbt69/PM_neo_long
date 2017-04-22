@@ -67,8 +67,8 @@ class VIEW3D_PT_tools_transform(View3DPanel, Panel):
         col.operator("transform.rotate")
         col.operator("transform.resize", text="Scale")
 
-        col = layout.column(align=True)
-        col.operator("transform.mirror", text="Mirror")
+        #col = layout.column(align=True)
+        #col.operator("transform.mirror", text="Mirror")
 
 
 class VIEW3D_PT_tools_object(View3DPanel, Panel):
@@ -198,13 +198,13 @@ class VIEW3D_PT_tools_add_object(View3DPanel, Panel):
         # draw_add_surface
         # draw_add_mball
 
-        col = layout.column(align=True)
-        col.label(text="Lamp:")
-        self.draw_add_lamp(col)
+        # col = layout.column(align=True)
+        # col.label(text="Lamp:")
+        # self.draw_add_lamp(col)
 
-        col = layout.column(align=True)
-        col.label(text="Other:")
-        self.draw_add_other(col)
+        # col = layout.column(align=True)
+        # col.label(text="Other:")
+        # self.draw_add_other(col)
 
 
 class VIEW3D_PT_tools_relations(View3DPanel, Panel):
@@ -2010,11 +2010,11 @@ class VIEW3D_PT_tools_history(View3DPanel, Panel):
 
 classes = (
     VIEW3D_PT_tools_transform,
-    VIEW3D_PT_tools_object,
-    VIEW3D_PT_tools_add_object,
-    VIEW3D_PT_tools_relations,
-    VIEW3D_PT_tools_animation,
-    VIEW3D_PT_tools_rigid_body,
+    #VIEW3D_PT_tools_object,
+    #VIEW3D_PT_tools_add_object,
+    #VIEW3D_PT_tools_relations,
+    #VIEW3D_PT_tools_animation,
+    #VIEW3D_PT_tools_rigid_body,
     VIEW3D_PT_tools_transform_mesh,
     VIEW3D_PT_tools_meshedit,
     VIEW3D_PT_tools_meshweight,
@@ -2061,13 +2061,13 @@ classes = (
     VIEW3D_PT_tools_projectpaint,
     VIEW3D_MT_tools_projectpaint_stencil,
     VIEW3D_PT_tools_particlemode,
-    VIEW3D_PT_tools_grease_pencil_draw,
+    #VIEW3D_PT_tools_grease_pencil_draw,
     VIEW3D_PT_tools_grease_pencil_edit,
     VIEW3D_PT_tools_grease_pencil_interpolate,
     VIEW3D_PT_tools_grease_pencil_sculpt,
-    VIEW3D_PT_tools_grease_pencil_brush,
+    #VIEW3D_PT_tools_grease_pencil_brush,
     VIEW3D_PT_tools_grease_pencil_brushcurves,
-    VIEW3D_PT_tools_history,
+    #VIEW3D_PT_tools_history,
 )
 
 if __name__ == "__main__":  # only for live edit.

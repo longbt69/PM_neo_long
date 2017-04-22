@@ -40,13 +40,14 @@ class INFO_HT_header(Header):
             layout.operator("screen.back_to_previous", icon='SCREEN_BACK', text="Back to Previous")
             layout.separator()
         else:
-            layout.template_ID(context.window, "screen", new="screen.new", unlink="screen.delete")
-            layout.template_ID(context.screen, "scene", new="scene.new", unlink="scene.delete")
+            #layout.template_ID(context.window, "screen", new="screen.new", unlink="screen.delete")
+            #layout.template_ID(context.screen, "scene", new="scene.new", unlink="scene.delete")
+            layout.template_ID(context.screen, "scene")
 
         layout.separator()
 
-        if rd.has_multiple_engines:
-            layout.prop(rd, "engine", text="")
+        '''if rd.has_multiple_engines:
+            layout.prop(rd, "engine", text="")'''
 
         layout.separator()
 
@@ -68,8 +69,8 @@ class INFO_HT_header(Header):
             row.label(bpy.app.autoexec_fail_message)
             return
 
-        row.operator("wm.splash", text="", icon='BLENDER', emboss=False)
-        row.label(text=scene.statistics(), translate=False)
+        #row.operator("wm.splash", text="", icon='BLENDER', emboss=False)
+        #row.label(text=scene.statistics(), translate=False)
 
 
 class INFO_MT_editor_menus(Menu):
@@ -86,10 +87,10 @@ class INFO_MT_editor_menus(Menu):
 
         layout.menu("INFO_MT_file")
 
-        if rd.use_game_engine:
+        '''if rd.use_game_engine:
             layout.menu("INFO_MT_game")
         else:
-            layout.menu("INFO_MT_render")
+            layout.menu("INFO_MT_render")'''
 
         layout.menu("INFO_MT_window")
         layout.menu("INFO_MT_help")
@@ -105,9 +106,9 @@ class INFO_MT_file(Menu):
         layout.operator("wm.read_homefile", text="New", icon='NEW')
         layout.operator("wm.open_mainfile", text="Open...", icon='FILE_FOLDER')
         layout.menu("INFO_MT_file_open_recent", icon='OPEN_RECENT')
-        layout.operator("wm.revert_mainfile", icon='FILE_REFRESH')
-        layout.operator("wm.recover_last_session", icon='RECOVER_LAST')
-        layout.operator("wm.recover_auto_save", text="Recover Auto Save...", icon='RECOVER_AUTO')
+        # layout.operator("wm.revert_mainfile", icon='FILE_REFRESH')
+        # layout.operator("wm.recover_last_session", icon='RECOVER_LAST')
+        # layout.operator("wm.recover_auto_save", text="Recover Auto Save...", icon='RECOVER_AUTO')
 
         layout.separator()
 
@@ -123,28 +124,28 @@ class INFO_MT_file(Menu):
 
         layout.operator("screen.userpref_show", text="User Preferences...", icon='PREFERENCES')
 
-        layout.operator_context = 'INVOKE_AREA'
-        layout.operator("wm.save_homefile", icon='SAVE_PREFS')
-        layout.operator("wm.read_factory_settings", icon='LOAD_FACTORY')
+        # layout.operator_context = 'INVOKE_AREA'
+        # layout.operator("wm.save_homefile", icon='SAVE_PREFS')
+        # layout.operator("wm.read_factory_settings", icon='LOAD_FACTORY')
 
-        if any(bpy.utils.app_template_paths()):
-            app_template = context.user_preferences.app_template
-            if app_template:
-                layout.operator(
-                    "wm.read_factory_settings",
-                    text="Load Factory Template Settings",
-                    icon='LOAD_FACTORY',
-                ).app_template = app_template
-            del app_template
+        # if any(bpy.utils.app_template_paths()):
+            # app_template = context.user_preferences.app_template
+            # if app_template:
+                # layout.operator(
+                    # "wm.read_factory_settings",
+                    # text="Load Factory Template Settings",
+                    # icon='LOAD_FACTORY',
+                # ).app_template = app_template
+            # del app_template
 
-        layout.menu("USERPREF_MT_app_templates", icon='FILE_BLEND')
+        # layout.menu("USERPREF_MT_app_templates", icon='FILE_BLEND')
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator_context = 'INVOKE_AREA'
-        layout.operator("wm.link", text="Link", icon='LINK_BLEND')
-        layout.operator("wm.append", text="Append", icon='APPEND_BLEND')
-        layout.menu("INFO_MT_file_previews")
+        # layout.operator_context = 'INVOKE_AREA'
+        # layout.operator("wm.link", text="Link", icon='LINK_BLEND')
+        # layout.operator("wm.append", text="Append", icon='APPEND_BLEND')
+        # layout.menu("INFO_MT_file_previews")
 
         layout.separator()
 
@@ -153,9 +154,9 @@ class INFO_MT_file(Menu):
 
         layout.separator()
 
-        layout.menu("INFO_MT_file_external_data", icon='EXTERNAL_DATA')
+        # layout.menu("INFO_MT_file_external_data", icon='EXTERNAL_DATA')
 
-        layout.separator()
+        # layout.separator()
 
         layout.operator_context = 'EXEC_AREA'
         if bpy.data.is_dirty and context.user_preferences.view.use_quit_dialog:
@@ -296,27 +297,34 @@ class INFO_MT_window(Menu):
         layout.operator("wm.window_duplicate")
         layout.operator("wm.window_fullscreen_toggle", icon='FULLSCREEN_ENTER')
 
-        layout.separator()
+        # layout.separator()
 
         layout.operator("screen.screenshot")
-        layout.operator("screen.screencast")
+        # layout.operator("screen.screencast")
 
-        if sys.platform[:3] == "win":
-            layout.separator()
-            layout.operator("wm.console_toggle", icon='CONSOLE')
+        # if sys.platform[:3] == "win":
+            # layout.separator()
+            # layout.operator("wm.console_toggle", icon='CONSOLE')
 
-        if context.scene.render.use_multiview:
-            layout.separator()
-            layout.operator("wm.set_stereo_3d", icon='CAMERA_STEREO')
+        # if context.scene.render.use_multiview:
+            # layout.separator()
+            # layout.operator("wm.set_stereo_3d", icon='CAMERA_STEREO')
 
 
 class INFO_MT_help(Menu):
     bl_label = "Help"
+    #bl_label = "Trợ giúp"
 
     def draw(self, context):
         layout = self.layout
-
         layout.operator(
+                "wm.url_open", text="Hướng dẫn sử dụng", icon='URL',
+                ).url = "http://vinacomin.vn"
+        layout.operator(
+                "wm.url_open", text="Giới thiệu", icon='URL',
+                ).url = "http://vimcc.vn/"
+
+        '''layout.operator(
                 "wm.url_open", text="Manual", icon='HELP',
                 ).url = "https://docs.blender.org/manual/en/dev/"
         layout.operator(
@@ -350,7 +358,7 @@ class INFO_MT_help(Menu):
         layout.operator("wm.sysinfo", icon='TEXT')
         layout.separator()
 
-        layout.operator("wm.splash", icon='BLENDER')
+        layout.operator("wm.splash", icon='BLENDER')'''
 
 
 classes = (

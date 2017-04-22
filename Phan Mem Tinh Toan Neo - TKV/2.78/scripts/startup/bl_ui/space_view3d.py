@@ -96,25 +96,25 @@ class VIEW3D_HT_header(Header):
                     if brush and brush.stroke_method == 'CURVE':
                         show_snap = True
 
-        if show_snap:
-            snap_element = toolsettings.snap_element
-            row = layout.row(align=True)
-            row.prop(toolsettings, "use_snap", text="")
-            row.prop(toolsettings, "snap_element", icon_only=True)
-            if snap_element == 'INCREMENT':
-                row.prop(toolsettings, "use_snap_grid_absolute", text="")
-            else:
-                row.prop(toolsettings, "snap_target", text="")
-                if obj:
-                    if mode == 'EDIT':
-                        row.prop(toolsettings, "use_snap_self", text="")
-                    if mode in {'OBJECT', 'POSE', 'EDIT'} and snap_element != 'VOLUME':
-                        row.prop(toolsettings, "use_snap_align_rotation", text="")
+        # if show_snap:
+            # snap_element = toolsettings.snap_element
+            # row = layout.row(align=True)
+            # row.prop(toolsettings, "use_snap", text="")
+            # row.prop(toolsettings, "snap_element", icon_only=True)
+            # if snap_element == 'INCREMENT':
+                # row.prop(toolsettings, "use_snap_grid_absolute", text="")
+            # else:
+                # row.prop(toolsettings, "snap_target", text="")
+                # if obj:
+                    # if mode == 'EDIT':
+                        # row.prop(toolsettings, "use_snap_self", text="")
+                    # if mode in {'OBJECT', 'POSE', 'EDIT'} and snap_element != 'VOLUME':
+                        # row.prop(toolsettings, "use_snap_align_rotation", text="")
 
-            if snap_element == 'VOLUME':
-                row.prop(toolsettings, "use_snap_peel_object", text="")
-            elif snap_element == 'FACE':
-                row.prop(toolsettings, "use_snap_project", text="")
+            # if snap_element == 'VOLUME':
+                # row.prop(toolsettings, "use_snap_peel_object", text="")
+            # elif snap_element == 'FACE':
+                # row.prop(toolsettings, "use_snap_project", text="")
 
         # AutoMerge editing
         if obj:
@@ -122,9 +122,9 @@ class VIEW3D_HT_header(Header):
                 layout.prop(toolsettings, "use_mesh_automerge", text="", icon='AUTOMERGE_ON')
 
         # OpenGL render
-        row = layout.row(align=True)
-        row.operator("render.opengl", text="", icon='RENDER_STILL')
-        row.operator("render.opengl", text="", icon='RENDER_ANIMATION').animation = True
+        # row = layout.row(align=True)
+        # row.operator("render.opengl", text="", icon='RENDER_STILL')
+        # row.operator("render.opengl", text="", icon='RENDER_ANIMATION').animation = True
 
         # Pose
         if obj and mode == 'POSE':
@@ -164,7 +164,7 @@ class VIEW3D_MT_editor_menus(Menu):
         layout.menu("VIEW3D_MT_view")
 
         # Select Menu
-        if gp_edit:
+        '''if gp_edit:
             layout.menu("VIEW3D_MT_select_gpencil")
         elif mode_string in {'PAINT_WEIGHT', 'PAINT_VERTEX', 'PAINT_TEXTURE'}:
             mesh = obj.data
@@ -173,9 +173,9 @@ class VIEW3D_MT_editor_menus(Menu):
             elif mesh.use_paint_mask_vertex and mode_string == 'PAINT_WEIGHT':
                 layout.menu("VIEW3D_MT_select_paint_mask_vertex")
         elif mode_string != 'SCULPT':
-            layout.menu("VIEW3D_MT_select_%s" % mode_string.lower())
+            layout.menu("VIEW3D_MT_select_%s" % mode_string.lower())'''
 
-        if gp_edit:
+        '''if gp_edit:
             pass
         elif mode_string == 'OBJECT':
             layout.menu("INFO_MT_add", text="Add")
@@ -188,7 +188,7 @@ class VIEW3D_MT_editor_menus(Menu):
         elif mode_string == 'EDIT_METABALL':
             layout.menu("INFO_MT_metaball_add", text="Add")
         elif mode_string == 'EDIT_ARMATURE':
-            layout.menu("INFO_MT_edit_armature_add", text="Add")
+            layout.menu("INFO_MT_edit_armature_add", text="Add")'''
 
         if gp_edit:
             layout.menu("VIEW3D_MT_edit_gpencil")
@@ -201,8 +201,8 @@ class VIEW3D_MT_editor_menus(Menu):
                 layout.menu("VIEW3D_MT_brush")
             if mode_string == 'SCULPT':
                 layout.menu("VIEW3D_MT_hide_mask")
-        else:
-            layout.menu("VIEW3D_MT_object")
+        # else:
+            # layout.menu("VIEW3D_MT_object")
 
 
 # ********** Menu **********
@@ -435,10 +435,10 @@ class VIEW3D_MT_view(Menu):
     def draw(self, context):
         layout = self.layout
 
-        layout.operator("view3d.properties", icon='MENU_PANEL')
-        layout.operator("view3d.toolshelf", icon='MENU_PANEL')
+        # layout.operator("view3d.properties", icon='MENU_PANEL')
+        # layout.operator("view3d.toolshelf", icon='MENU_PANEL')
 
-        layout.separator()
+        # layout.separator()
 
         layout.operator("view3d.viewnumpad", text="Camera").type = 'CAMERA'
         layout.operator("view3d.viewnumpad", text="Top").type = 'TOP'
@@ -448,46 +448,46 @@ class VIEW3D_MT_view(Menu):
         layout.operator("view3d.viewnumpad", text="Right").type = 'RIGHT'
         layout.operator("view3d.viewnumpad", text="Left").type = 'LEFT'
 
-        layout.menu("VIEW3D_MT_view_cameras", text="Cameras")
+        # layout.menu("VIEW3D_MT_view_cameras", text="Cameras")
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator("view3d.view_persportho")
+        # layout.operator("view3d.view_persportho")
 
-        layout.separator()
+        # layout.separator()
 
-        layout.menu("VIEW3D_MT_view_navigation")
-        layout.menu("VIEW3D_MT_view_align")
+        # layout.menu("VIEW3D_MT_view_navigation")
+        # layout.menu("VIEW3D_MT_view_align")
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator_context = 'INVOKE_REGION_WIN'
+        # layout.operator_context = 'INVOKE_REGION_WIN'
 
-        layout.operator("view3d.clip_border", text="Clipping Border...")
-        layout.operator("view3d.zoom_border", text="Zoom Border...")
-        layout.operator("view3d.render_border", text="Render Border...").camera_only = False
-        layout.operator("view3d.clear_render_border")
+        # layout.operator("view3d.clip_border", text="Clipping Border...")
+        # layout.operator("view3d.zoom_border", text="Zoom Border...")
+        # layout.operator("view3d.render_border", text="Render Border...").camera_only = False
+        # layout.operator("view3d.clear_render_border")
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator("view3d.layers", text="Show All Layers").nr = 0
+        # layout.operator("view3d.layers", text="Show All Layers").nr = 0
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator("view3d.localview", text="View Global/Local")
-        layout.operator("view3d.view_selected").use_all_regions = False
-        layout.operator("view3d.view_all").center = False
+        # layout.operator("view3d.localview", text="View Global/Local")
+        # layout.operator("view3d.view_selected").use_all_regions = False
+        # layout.operator("view3d.view_all").center = False
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator("screen.animation_play", text="Playback Animation")
+        # layout.operator("screen.animation_play", text="Playback Animation")
 
-        layout.separator()
+        # layout.separator()
 
-        layout.operator("screen.area_dupli")
-        layout.operator("screen.region_quadview")
-        layout.operator("screen.screen_full_area")
-        layout.operator("screen.screen_full_area", text="Toggle Fullscreen Area").use_hide_panels = True
+        # layout.operator("screen.area_dupli")
+        # layout.operator("screen.region_quadview")
+        # layout.operator("screen.screen_full_area")
+        # layout.operator("screen.screen_full_area", text="Toggle Fullscreen Area").use_hide_panels = True
 
 
 class VIEW3D_MT_view_navigation(Menu):
