@@ -39,7 +39,7 @@ class VIEW3D_HT_header(Header):
         toolsettings = context.tool_settings
 
         row = layout.row(align=True)
-        row.template_header()
+        #row.template_header()
 
         VIEW3D_MT_editor_menus.draw_collapsible(context, layout)
 
@@ -96,25 +96,25 @@ class VIEW3D_HT_header(Header):
                     if brush and brush.stroke_method == 'CURVE':
                         show_snap = True
 
-        # if show_snap:
-            # snap_element = toolsettings.snap_element
-            # row = layout.row(align=True)
-            # row.prop(toolsettings, "use_snap", text="")
-            # row.prop(toolsettings, "snap_element", icon_only=True)
-            # if snap_element == 'INCREMENT':
-                # row.prop(toolsettings, "use_snap_grid_absolute", text="")
-            # else:
-                # row.prop(toolsettings, "snap_target", text="")
-                # if obj:
-                    # if mode == 'EDIT':
-                        # row.prop(toolsettings, "use_snap_self", text="")
-                    # if mode in {'OBJECT', 'POSE', 'EDIT'} and snap_element != 'VOLUME':
-                        # row.prop(toolsettings, "use_snap_align_rotation", text="")
+        if show_snap:
+            snap_element = toolsettings.snap_element
+            row = layout.row(align=True)
+            row.prop(toolsettings, "use_snap", text="")
+            row.prop(toolsettings, "snap_element", icon_only=True)
+            if snap_element == 'INCREMENT':
+                row.prop(toolsettings, "use_snap_grid_absolute", text="")
+            else:
+                row.prop(toolsettings, "snap_target", text="")
+                if obj:
+                    if mode == 'EDIT':
+                        row.prop(toolsettings, "use_snap_self", text="")
+                    if mode in {'OBJECT', 'POSE', 'EDIT'} and snap_element != 'VOLUME':
+                        row.prop(toolsettings, "use_snap_align_rotation", text="")
 
-            # if snap_element == 'VOLUME':
-                # row.prop(toolsettings, "use_snap_peel_object", text="")
-            # elif snap_element == 'FACE':
-                # row.prop(toolsettings, "use_snap_project", text="")
+            if snap_element == 'VOLUME':
+                row.prop(toolsettings, "use_snap_peel_object", text="")
+            elif snap_element == 'FACE':
+                row.prop(toolsettings, "use_snap_project", text="")
 
         # AutoMerge editing
         if obj:
@@ -190,7 +190,7 @@ class VIEW3D_MT_editor_menus(Menu):
         elif mode_string == 'EDIT_ARMATURE':
             layout.menu("INFO_MT_edit_armature_add", text="Add")'''
 
-        if gp_edit:
+        '''if gp_edit:
             layout.menu("VIEW3D_MT_edit_gpencil")
         elif edit_object:
             layout.menu("VIEW3D_MT_edit_%s" % edit_object.type.lower())
@@ -200,7 +200,7 @@ class VIEW3D_MT_editor_menus(Menu):
             if mode_string in {'SCULPT', 'PAINT_VERTEX', 'PAINT_WEIGHT', 'PAINT_TEXTURE'}:
                 layout.menu("VIEW3D_MT_brush")
             if mode_string == 'SCULPT':
-                layout.menu("VIEW3D_MT_hide_mask")
+                layout.menu("VIEW3D_MT_hide_mask")'''
         # else:
             # layout.menu("VIEW3D_MT_object")
 
@@ -440,7 +440,7 @@ class VIEW3D_MT_view(Menu):
 
         # layout.separator()
 
-        layout.operator("view3d.viewnumpad", text="Camera").type = 'CAMERA'
+        #layout.operator("view3d.viewnumpad", text="Camera").type = 'CAMERA'
         layout.operator("view3d.viewnumpad", text="Top").type = 'TOP'
         layout.operator("view3d.viewnumpad", text="Bottom").type = 'BOTTOM'
         layout.operator("view3d.viewnumpad", text="Front").type = 'FRONT'
@@ -3919,20 +3919,20 @@ classes = (
     VIEW3D_MT_edit_armature_delete,
     VIEW3D_MT_edit_gpencil_transform,
     VIEW3D_MT_edit_gpencil_interpolate,
-    VIEW3D_PT_grease_pencil,
-    VIEW3D_PT_grease_pencil_palettecolor,
-    VIEW3D_PT_view3d_properties,
-    VIEW3D_PT_view3d_cursor,
-    VIEW3D_PT_view3d_name,
-    VIEW3D_PT_view3d_display,
+    # VIEW3D_PT_grease_pencil,
+    # VIEW3D_PT_grease_pencil_palettecolor,
+    # VIEW3D_PT_view3d_properties,
+    # VIEW3D_PT_view3d_cursor,
+    # VIEW3D_PT_view3d_name,
+    # VIEW3D_PT_view3d_display,
     VIEW3D_PT_view3d_stereo,
-    VIEW3D_PT_view3d_shading,
-    VIEW3D_PT_view3d_motion_tracking,
-    VIEW3D_PT_view3d_meshdisplay,
+    # VIEW3D_PT_view3d_shading,
+    # VIEW3D_PT_view3d_motion_tracking,
+    # VIEW3D_PT_view3d_meshdisplay,
     VIEW3D_PT_view3d_meshstatvis,
     VIEW3D_PT_view3d_curvedisplay,
-    VIEW3D_PT_background_image,
-    VIEW3D_PT_transform_orientations,
+    # VIEW3D_PT_background_image,
+    # VIEW3D_PT_transform_orientations,
     VIEW3D_PT_etch_a_ton,
     VIEW3D_PT_context_properties,
 )

@@ -32,7 +32,7 @@ class INFO_HT_header(Header):
         rd = scene.render
 
         row = layout.row(align=True)
-        row.template_header()
+        #row.template_header()
 
         INFO_MT_editor_menus.draw_collapsible(context, layout)
 
@@ -42,6 +42,8 @@ class INFO_HT_header(Header):
         else:
             #layout.template_ID(context.window, "screen", new="screen.new", unlink="screen.delete")
             #layout.template_ID(context.screen, "scene", new="scene.new", unlink="scene.delete")
+            #layout.template_ID(context.window, "scene", unlink="screen.delete")
+            layout.template_ID(context.window, "screen")
             layout.template_ID(context.screen, "scene")
 
         layout.separator()
@@ -122,7 +124,7 @@ class INFO_MT_file(Menu):
 
         layout.separator()
 
-        layout.operator("screen.userpref_show", text="User Preferences...", icon='PREFERENCES')
+        #layout.operator("screen.userpref_show", text="User Preferences...", icon='PREFERENCES')
 
         # layout.operator_context = 'INVOKE_AREA'
         # layout.operator("wm.save_homefile", icon='SAVE_PREFS')

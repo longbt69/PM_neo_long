@@ -312,7 +312,7 @@ def brush_mask_texture_settings(layout, brush):
 
 
 classes = (
-    VIEW3D_MT_tools_projectpaint_clone,
+    #VIEW3D_MT_tools_projectpaint_clone,
 )
 
 if __name__ == "__main__":  # only for live edit.
