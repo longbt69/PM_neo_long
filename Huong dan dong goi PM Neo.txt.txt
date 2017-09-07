@@ -1,0 +1,12 @@
+1) Chuot phai vao thu muc can dong goi
+2) Chon "Add to Archive..."
+3) tab General -> Cmpressopm method: chon Best
+   Archiving option: Tich Create SFX archive
+4) tab Advanced -> SFX options...
+	General: Path to extract: go "C:\"
+	Advance: Shortcuts-> Add shortcut...: Destop: "Phan Mem Tinh Toan Neo - TKV\Phan mem tinh toan neo"
+	Text and icon: 	Go Tile va noi dung : ""
+			SFX Logo : chon den duong dan logo
+		       	SFX icon : chon den duong dan icon
+	Update: Overwrite mode: chon "Overwrite all files"
+	Licence: co the go cung dc
